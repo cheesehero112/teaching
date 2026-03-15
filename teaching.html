@@ -1,1001 +1,1349 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teaching — Chihiro Shibayama</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --black: #0a0a0a;
-    --white: #ffffff;
-    --off-white: #f8f7f5;
-    --mid-gray: #888;
-    --light-gray: #e8e6e2;
-    --text-gray: #444;
-    --accent: #0a0a0a;
-  }
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Teaching — Chihiro Shibayama</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--black: #0a0a0a;
+				--white: #ffffff;
+				--off-white: #f8f7f5;
+				--mid-gray: #888;
+				--light-gray: #e8e6e2;
+				--text-gray: #444;
+				--accent: #0a0a0a;
+			}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
 
-  body {
-    font-family: 'Lato', sans-serif;
-    color: var(--black);
-    background: var(--white);
-    font-weight: 300;
-    line-height: 1.7;
-  }
+			body {
+				font-family: 'Lato', sans-serif;
+				color: var(--black);
+				background: var(--white);
+				font-weight: 300;
+				line-height: 1.7;
+			}
 
-  /* ─── NAV (matches Squarespace site) ─── */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28px 60px;
-    border-bottom: 1px solid var(--light-gray);
-    position: sticky;
-    top: 0;
-    background: rgba(255,255,255,0.97);
-    z-index: 100;
-    backdrop-filter: blur(4px);
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    color: var(--black);
-    text-decoration: none;
-  }
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--black);
-    text-decoration: none;
-    font-weight: 400;
-  }
-  .nav-links a.active { border-bottom: 1px solid var(--black); }
-  .nav-links a:hover { color: var(--mid-gray); }
-  .nav-contact {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--black);
-    border: 1px solid var(--black);
-    padding: 8px 20px;
-    font-weight: 400;
-    transition: all 0.2s;
-  }
-  .nav-contact:hover { background: var(--black); color: var(--white); }
+			/* ─── NAV (matches Squarespace site) ─── */
+			nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 28px 60px;
+				border-bottom: 1px solid var(--light-gray);
+				position: sticky;
+				top: 0;
+				background: rgba(255, 255, 255, 0.97);
+				z-index: 100;
+				backdrop-filter: blur(4px);
+			}
+			.nav-logo {
+				font-family: 'Playfair Display', serif;
+				font-size: 18px;
+				font-weight: 400;
+				letter-spacing: 0.04em;
+				color: var(--black);
+				text-decoration: none;
+			}
+			.nav-links {
+				display: flex;
+				gap: 36px;
+				list-style: none;
+			}
+			.nav-links a {
+				font-size: 12px;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: var(--black);
+				text-decoration: none;
+				font-weight: 400;
+			}
+			.nav-links a.active {
+				border-bottom: 1px solid var(--black);
+			}
+			.nav-links a:hover {
+				color: var(--mid-gray);
+			}
+			.nav-contact {
+				font-size: 12px;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				text-decoration: none;
+				color: var(--black);
+				border: 1px solid var(--black);
+				padding: 8px 20px;
+				font-weight: 400;
+				transition: all 0.2s;
+			}
+			.nav-contact:hover {
+				background: var(--black);
+				color: var(--white);
+			}
 
-  /* ─── HERO ─── */
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 88vh;
-    border-bottom: 1px solid var(--light-gray);
-  }
-  .hero-left {
-    padding: 80px 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-right: 1px solid var(--light-gray);
-  }
-  .eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--mid-gray);
-  }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(44px, 5.5vw, 74px);
-    font-weight: 400;
-    line-height: 1.08;
-    color: var(--black);
-    margin-bottom: 32px;
-  }
-  .hero-title em {
-    font-style: italic;
-    font-weight: 400;
-  }
-  .hero-desc {
-    font-size: 15px;
-    line-height: 1.85;
-    color: var(--text-gray);
-    max-width: 440px;
-    margin-bottom: 48px;
-    font-weight: 300;
-  }
-  .hero-stats {
-    display: flex;
-    gap: 0;
-    border-top: 1px solid var(--light-gray);
-    padding-top: 40px;
-    margin-bottom: 48px;
-  }
-  .stat {
-    flex: 1;
-    padding-right: 32px;
-    border-right: 1px solid var(--light-gray);
-    margin-right: 32px;
-  }
-  .stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    font-weight: 400;
-    color: var(--black);
-    line-height: 1;
-    display: block;
-  }
-  .stat-label {
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-    margin-top: 6px;
-    display: block;
-  }
-  .btn-row { display: flex; gap: 16px; align-items: center; }
-  .btn-primary {
-    background: var(--black);
-    color: var(--white);
-    border: none;
-    padding: 15px 40px;
-    font-family: 'Lato', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: opacity 0.2s;
-  }
-  .btn-primary:hover { opacity: 0.75; }
-  .btn-ghost {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-    text-decoration: none;
-    border-bottom: 1px solid var(--light-gray);
-    padding-bottom: 2px;
-  }
-  .hero-right {
-    position: relative;
-    overflow: hidden;
-    background: var(--off-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .hero-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .hero-photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    color: #aaa;
-    background: #f0ede8;
-  }
-  .photo-note {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #bbb;
-  }
-  .nyt-pull {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    background: rgba(255,255,255,0.93);
-    padding: 16px 24px;
-    max-width: 280px;
-  }
-  .nyt-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 16px;
-    color: var(--black);
-    line-height: 1.4;
-    margin-bottom: 8px;
-  }
-  .nyt-source {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-  }
+			/* ─── HERO ─── */
+			.hero {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				min-height: 88vh;
+				border-bottom: 1px solid var(--light-gray);
+			}
+			.hero-left {
+				padding: 80px 70px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				border-right: 1px solid var(--light-gray);
+			}
+			.eyebrow {
+				font-size: 10px;
+				letter-spacing: 0.25em;
+				text-transform: uppercase;
+				color: var(--mid-gray);
+				margin-bottom: 28px;
+				display: flex;
+				align-items: center;
+				gap: 12px;
+			}
+			.eyebrow::before {
+				content: '';
+				display: block;
+				width: 32px;
+				height: 1px;
+				background: var(--mid-gray);
+			}
+			.hero-title {
+				font-family: 'Playfair Display', serif;
+				font-size: clamp(44px, 5.5vw, 74px);
+				font-weight: 400;
+				line-height: 1.08;
+				color: var(--black);
+				margin-bottom: 32px;
+			}
+			.hero-title em {
+				font-style: italic;
+				font-weight: 400;
+			}
+			.hero-desc {
+				font-size: 15px;
+				line-height: 1.85;
+				color: var(--text-gray);
+				max-width: 440px;
+				margin-bottom: 48px;
+				font-weight: 300;
+			}
+			.hero-stats {
+				display: flex;
+				gap: 0;
+				border-top: 1px solid var(--light-gray);
+				padding-top: 40px;
+				margin-bottom: 48px;
+			}
+			.stat {
+				flex: 1;
+				padding-right: 32px;
+				border-right: 1px solid var(--light-gray);
+				margin-right: 32px;
+			}
+			.stat:last-child {
+				border-right: none;
+				margin-right: 0;
+				padding-right: 0;
+			}
+			.stat-num {
+				font-family: 'Playfair Display', serif;
+				font-size: 38px;
+				font-weight: 400;
+				color: var(--black);
+				line-height: 1;
+				display: block;
+			}
+			.stat-label {
+				font-size: 10px;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--mid-gray);
+				margin-top: 6px;
+				display: block;
+			}
+			.btn-row {
+				display: flex;
+				gap: 16px;
+				align-items: center;
+			}
+			.btn-primary {
+				background: var(--black);
+				color: var(--white);
+				border: none;
+				padding: 15px 40px;
+				font-family: 'Lato', sans-serif;
+				font-size: 11px;
+				font-weight: 400;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				cursor: pointer;
+				text-decoration: none;
+				display: inline-block;
+				transition: opacity 0.2s;
+			}
+			.btn-primary:hover {
+				opacity: 0.75;
+			}
+			.btn-ghost {
+				font-size: 11px;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: var(--mid-gray);
+				text-decoration: none;
+				border-bottom: 1px solid var(--light-gray);
+				padding-bottom: 2px;
+			}
+			.hero-right {
+				position: relative;
+				overflow: hidden;
+				background: var(--off-white);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.hero-photo {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+			.hero-photo-placeholder {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 16px;
+				color: #aaa;
+				background: #f0ede8;
+			}
+			.photo-note {
+				font-size: 11px;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: #bbb;
+			}
+			.nyt-pull {
+				position: absolute;
+				bottom: 40px;
+				left: 40px;
+				background: rgba(255, 255, 255, 0.93);
+				padding: 16px 24px;
+				max-width: 280px;
+			}
+			.nyt-quote {
+				font-family: 'Playfair Display', serif;
+				font-style: italic;
+				font-size: 16px;
+				color: var(--black);
+				line-height: 1.4;
+				margin-bottom: 8px;
+			}
+			.nyt-source {
+				font-size: 10px;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: var(--mid-gray);
+			}
 
-  /* ─── SECTION SHARED ─── */
-  .section {
-    padding: 100px 60px;
-    max-width: 1180px;
-    margin: 0 auto;
-  }
-  .section-header { margin-bottom: 64px; }
-  .section-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--mid-gray);
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 400;
-    line-height: 1.12;
-    color: var(--black);
-  }
-  .section-title em { font-style: italic; }
+			/* ─── SECTION SHARED ─── */
+			.section {
+				padding: 100px 60px;
+				max-width: 1180px;
+				margin: 0 auto;
+			}
+			.section-header {
+				margin-bottom: 64px;
+			}
+			.section-eyebrow {
+				font-size: 10px;
+				letter-spacing: 0.25em;
+				text-transform: uppercase;
+				color: var(--mid-gray);
+				margin-bottom: 20px;
+				display: flex;
+				align-items: center;
+				gap: 12px;
+			}
+			.section-eyebrow::before {
+				content: '';
+				display: block;
+				width: 32px;
+				height: 1px;
+				background: var(--mid-gray);
+			}
+			.section-title {
+				font-family: 'Playfair Display', serif;
+				font-size: clamp(32px, 4vw, 52px);
+				font-weight: 400;
+				line-height: 1.12;
+				color: var(--black);
+			}
+			.section-title em {
+				font-style: italic;
+			}
 
-  /* ─── WHY GRID ─── */
-  .why-section { background: var(--off-white); }
-  .why-inner { max-width: 1180px; margin: 0 auto; padding: 100px 60px; }
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--light-gray);
-    border: 1px solid var(--light-gray);
-    margin-top: 64px;
-  }
-  .why-card {
-    background: var(--off-white);
-    padding: 48px 40px;
-    position: relative;
-  }
-  .why-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 60px;
-    font-weight: 400;
-    color: rgba(0,0,0,0.06);
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    line-height: 1;
-  }
-  .why-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--black);
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-  .why-text {
-    font-size: 13.5px;
-    line-height: 1.85;
-    color: var(--text-gray);
-    font-weight: 300;
-  }
+			/* ─── WHY GRID ─── */
+			.why-section {
+				background: var(--off-white);
+			}
+			.why-inner {
+				max-width: 1180px;
+				margin: 0 auto;
+				padding: 100px 60px;
+			}
+			.why-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1px;
+				background: var(--light-gray);
+				border: 1px solid var(--light-gray);
+				margin-top: 64px;
+			}
+			.why-card {
+				background: var(--off-white);
+				padding: 48px 40px;
+				position: relative;
+			}
+			.why-num {
+				font-family: 'Playfair Display', serif;
+				font-size: 60px;
+				font-weight: 400;
+				color: rgba(0, 0, 0, 0.06);
+				position: absolute;
+				top: 20px;
+				right: 24px;
+				line-height: 1;
+			}
+			.why-title {
+				font-family: 'Playfair Display', serif;
+				font-size: 20px;
+				font-weight: 400;
+				color: var(--black);
+				margin-bottom: 14px;
+				line-height: 1.3;
+			}
+			.why-text {
+				font-size: 13.5px;
+				line-height: 1.85;
+				color: var(--text-gray);
+				font-weight: 300;
+			}
 
-  /* ─── CREDENTIALS BAR ─── */
-  .creds-bar {
-    border-top: 1px solid var(--light-gray);
-    border-bottom: 1px solid var(--light-gray);
-    padding: 36px 60px;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    overflow-x: auto;
-  }
-  .cred-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    white-space: nowrap;
-    padding: 0 40px;
-    border-right: 1px solid var(--light-gray);
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    color: var(--text-gray);
-    text-transform: uppercase;
-  }
-  .cred-item:first-child { padding-left: 0; }
-  .cred-item:last-child { border-right: none; }
-  .cred-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--black); flex-shrink: 0; }
+			/* ─── CREDENTIALS BAR ─── */
+			.creds-bar {
+				border-top: 1px solid var(--light-gray);
+				border-bottom: 1px solid var(--light-gray);
+				padding: 36px 60px;
+				display: flex;
+				align-items: center;
+				gap: 0;
+				overflow-x: auto;
+			}
+			.cred-item {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				white-space: nowrap;
+				padding: 0 40px;
+				border-right: 1px solid var(--light-gray);
+				font-size: 12px;
+				letter-spacing: 0.08em;
+				color: var(--text-gray);
+				text-transform: uppercase;
+			}
+			.cred-item:first-child {
+				padding-left: 0;
+			}
+			.cred-item:last-child {
+				border-right: none;
+			}
+			.cred-dot {
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+				background: var(--black);
+				flex-shrink: 0;
+			}
 
-  /* ─── LESSONS ─── */
-  .lessons-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--light-gray);
-    border: 1px solid var(--light-gray);
-    margin-top: 64px;
-  }
-  .lesson-card {
-    background: var(--white);
-    padding: 52px 48px;
-  }
-  .lesson-card.dark {
-    background: var(--black);
-  }
-  .lesson-tag {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-    margin-bottom: 20px;
-    display: block;
-  }
-  .lesson-card.dark .lesson-tag { color: rgba(255,255,255,0.4); }
-  .lesson-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--black);
-    margin-bottom: 16px;
-  }
-  .lesson-card.dark .lesson-title { color: var(--white); }
-  .lesson-desc {
-    font-size: 14px;
-    line-height: 1.85;
-    color: var(--text-gray);
-    font-weight: 300;
-    margin-bottom: 32px;
-    max-width: 360px;
-  }
-  .lesson-card.dark .lesson-desc { color: rgba(255,255,255,0.55); }
-  .price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-  .price-main {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--black);
-  }
-  .lesson-card.dark .price-main { color: var(--white); }
-  .price-unit {
-    font-size: 12px;
-    color: var(--mid-gray);
-    letter-spacing: 0.05em;
-  }
-  .lesson-card.dark .price-unit { color: rgba(255,255,255,0.35); }
-  .price-note {
-    font-size: 12px;
-    color: var(--mid-gray);
-    margin-bottom: 32px;
-    font-style: italic;
-  }
-  .lesson-card.dark .price-note { color: rgba(255,255,255,0.3); }
-  .lesson-features { list-style: none; margin-bottom: 40px; }
-  .lesson-features li {
-    font-size: 13px;
-    color: var(--text-gray);
-    padding: 10px 0;
-    border-bottom: 1px solid var(--light-gray);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 300;
-  }
-  .lesson-card.dark .lesson-features li {
-    color: rgba(255,255,255,0.6);
-    border-bottom-color: rgba(255,255,255,0.1);
-  }
-  .lesson-features li::before {
-    content: '';
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--black);
-    flex-shrink: 0;
-  }
-  .lesson-card.dark .lesson-features li::before { background: rgba(255,255,255,0.4); }
-  .btn-lesson {
-    display: inline-block;
-    padding: 14px 36px;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    transition: all 0.2s;
-    cursor: pointer;
-    border: none;
-  }
-  .btn-lesson.outline {
-    border: 1px solid var(--black);
-    color: var(--black);
-    background: transparent;
-  }
-  .btn-lesson.outline:hover { background: var(--black); color: var(--white); }
-  .btn-lesson.white-btn {
-    background: var(--white);
-    color: var(--black);
-  }
-  .btn-lesson.white-btn:hover { opacity: 0.85; }
+			/* ─── LESSONS ─── */
+			.lessons-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1px;
+				background: var(--light-gray);
+				border: 1px solid var(--light-gray);
+				margin-top: 64px;
+			}
+			.lesson-card {
+				background: var(--white);
+				padding: 52px 48px;
+			}
+			.lesson-card.dark {
+				background: var(--black);
+			}
+			.lesson-tag {
+				font-size: 10px;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: var(--mid-gray);
+				margin-bottom: 20px;
+				display: block;
+			}
+			.lesson-card.dark .lesson-tag {
+				color: rgba(255, 255, 255, 0.4);
+			}
+			.lesson-title {
+				font-family: 'Playfair Display', serif;
+				font-size: 28px;
+				font-weight: 400;
+				color: var(--black);
+				margin-bottom: 16px;
+			}
+			.lesson-card.dark .lesson-title {
+				color: var(--white);
+			}
+			.lesson-desc {
+				font-size: 14px;
+				line-height: 1.85;
+				color: var(--text-gray);
+				font-weight: 300;
+				margin-bottom: 32px;
+				max-width: 360px;
+			}
+			.lesson-card.dark .lesson-desc {
+				color: rgba(255, 255, 255, 0.55);
+			}
+			.price-row {
+				display: flex;
+				align-items: baseline;
+				gap: 8px;
+				margin-bottom: 8px;
+			}
+			.price-main {
+				font-family: 'Playfair Display', serif;
+				font-size: 36px;
+				font-weight: 400;
+				color: var(--black);
+			}
+			.lesson-card.dark .price-main {
+				color: var(--white);
+			}
+			.price-unit {
+				font-size: 12px;
+				color: var(--mid-gray);
+				letter-spacing: 0.05em;
+			}
+			.lesson-card.dark .price-unit {
+				color: rgba(255, 255, 255, 0.35);
+			}
+			.price-note {
+				font-size: 12px;
+				color: var(--mid-gray);
+				margin-bottom: 32px;
+				font-style: italic;
+			}
+			.lesson-card.dark .price-note {
+				color: rgba(255, 255, 255, 0.3);
+			}
+			.lesson-features {
+				list-style: none;
+				margin-bottom: 40px;
+			}
+			.lesson-features li {
+				font-size: 13px;
+				color: var(--text-gray);
+				padding: 10px 0;
+				border-bottom: 1px solid var(--light-gray);
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				font-weight: 300;
+			}
+			.lesson-card.dark .lesson-features li {
+				color: rgba(255, 255, 255, 0.6);
+				border-bottom-color: rgba(255, 255, 255, 0.1);
+			}
+			.lesson-features li::before {
+				content: '';
+				width: 4px;
+				height: 4px;
+				border-radius: 50%;
+				background: var(--black);
+				flex-shrink: 0;
+			}
+			.lesson-card.dark .lesson-features li::before {
+				background: rgba(255, 255, 255, 0.4);
+			}
+			.btn-lesson {
+				display: inline-block;
+				padding: 14px 36px;
+				font-size: 11px;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				text-decoration: none;
+				font-family: 'Lato', sans-serif;
+				font-weight: 400;
+				transition: all 0.2s;
+				cursor: pointer;
+				border: none;
+			}
+			.btn-lesson.outline {
+				border: 1px solid var(--black);
+				color: var(--black);
+				background: transparent;
+			}
+			.btn-lesson.outline:hover {
+				background: var(--black);
+				color: var(--white);
+			}
+			.btn-lesson.white-btn {
+				background: var(--white);
+				color: var(--black);
+			}
+			.btn-lesson.white-btn:hover {
+				opacity: 0.85;
+			}
 
-  /* Trial callout */
-  .trial-banner {
-    border: 1px solid var(--light-gray);
-    padding: 48px 60px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 40px;
-    margin-top: 1px;
-    background: var(--off-white);
-  }
-  .trial-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--black);
-    margin-bottom: 8px;
-  }
-  .trial-desc { font-size: 14px; color: var(--text-gray); font-weight: 300; }
+			/* Trial callout */
+			.trial-banner {
+				border: 1px solid var(--light-gray);
+				padding: 48px 60px;
+				display: grid;
+				grid-template-columns: 1fr auto;
+				align-items: center;
+				gap: 40px;
+				margin-top: 1px;
+				background: var(--off-white);
+			}
+			.trial-title {
+				font-family: 'Playfair Display', serif;
+				font-size: 26px;
+				font-weight: 400;
+				color: var(--black);
+				margin-bottom: 8px;
+			}
+			.trial-desc {
+				font-size: 14px;
+				color: var(--text-gray);
+				font-weight: 300;
+			}
 
-  /* ─── QUOTE ─── */
-  .quote-section {
-    background: var(--black);
-    padding: 100px 60px;
-    text-align: center;
-  }
-  .quote-text {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 3.5vw, 42px);
-    font-style: italic;
-    font-weight: 400;
-    color: var(--white);
-    max-width: 820px;
-    margin: 0 auto 28px;
-    line-height: 1.4;
-  }
-  .quote-source {
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-  }
+			/* ─── QUOTE ─── */
+			.quote-section {
+				background: var(--black);
+				padding: 100px 60px;
+				text-align: center;
+			}
+			.quote-text {
+				font-family: 'Playfair Display', serif;
+				font-size: clamp(24px, 3.5vw, 42px);
+				font-style: italic;
+				font-weight: 400;
+				color: var(--white);
+				max-width: 820px;
+				margin: 0 auto 28px;
+				line-height: 1.4;
+			}
+			.quote-source {
+				font-size: 10px;
+				letter-spacing: 0.25em;
+				text-transform: uppercase;
+				color: rgba(255, 255, 255, 0.3);
+			}
 
-  /* ─── STUDENT OUTCOMES ─── */
-  .outcomes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-top: 64px;
-  }
-  .outcome-card { padding: 0; }
-  .outcome-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 400;
-    color: var(--black);
-    margin-bottom: 8px;
-    line-height: 1;
-    display: block;
-  }
-  .outcome-title {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--black);
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-  }
-  .outcome-desc { font-size: 13.5px; color: var(--text-gray); line-height: 1.75; font-weight: 300; }
+			/* ─── STUDENT OUTCOMES ─── */
+			.outcomes-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 40px;
+				margin-top: 64px;
+			}
+			.outcome-card {
+				padding: 0;
+			}
+			.outcome-num {
+				font-family: 'Playfair Display', serif;
+				font-size: 48px;
+				font-weight: 400;
+				color: var(--black);
+				margin-bottom: 8px;
+				line-height: 1;
+				display: block;
+			}
+			.outcome-title {
+				font-size: 13px;
+				font-weight: 400;
+				color: var(--black);
+				letter-spacing: 0.05em;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+				font-size: 11px;
+				letter-spacing: 0.15em;
+			}
+			.outcome-desc {
+				font-size: 13.5px;
+				color: var(--text-gray);
+				line-height: 1.75;
+				font-weight: 300;
+			}
 
-  /* ─── FAQ ─── */
-  .faq-section { border-top: 1px solid var(--light-gray); }
-  .faq-item {
-    border-bottom: 1px solid var(--light-gray);
-    padding: 28px 0;
-    cursor: pointer;
-  }
-  .faq-q {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--black);
-    gap: 24px;
-  }
-  .faq-toggle {
-    font-size: 22px;
-    font-weight: 300;
-    color: var(--mid-gray);
-    flex-shrink: 0;
-    transition: transform 0.2s;
-    line-height: 1;
-  }
-  .faq-a {
-    font-size: 14px;
-    color: var(--text-gray);
-    line-height: 1.8;
-    font-weight: 300;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s;
-  }
-  .faq-a.open { max-height: 300px; padding-top: 16px; }
+			/* ─── FAQ ─── */
+			.faq-section {
+				border-top: 1px solid var(--light-gray);
+			}
+			.faq-item {
+				border-bottom: 1px solid var(--light-gray);
+				padding: 28px 0;
+				cursor: pointer;
+			}
+			.faq-q {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 15px;
+				font-weight: 400;
+				color: var(--black);
+				gap: 24px;
+			}
+			.faq-toggle {
+				font-size: 22px;
+				font-weight: 300;
+				color: var(--mid-gray);
+				flex-shrink: 0;
+				transition: transform 0.2s;
+				line-height: 1;
+			}
+			.faq-a {
+				font-size: 14px;
+				color: var(--text-gray);
+				line-height: 1.8;
+				font-weight: 300;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease, padding 0.3s;
+			}
+			.faq-a.open {
+				max-height: 300px;
+				padding-top: 16px;
+			}
 
-  /* ─── CONTACT ─── */
-  .contact-section {
-    background: var(--off-white);
-    border-top: 1px solid var(--light-gray);
-  }
-  .contact-inner {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 100px 60px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-  }
-  .contact-left {}
-  .contact-tagline {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    color: var(--black);
-  }
-  .contact-tagline em { font-style: italic; }
-  .contact-body {
-    font-size: 14px;
-    line-height: 1.85;
-    color: var(--text-gray);
-    font-weight: 300;
-    margin-bottom: 40px;
-  }
-  .contact-detail {
-    font-size: 13px;
-    color: var(--black);
-    letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-  .contact-detail a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--light-gray); }
-  form { display: flex; flex-direction: column; gap: 20px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { display: flex; flex-direction: column; gap: 7px; }
-  label {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-  }
-  input, textarea, select {
-    background: var(--white);
-    border: 1px solid var(--light-gray);
-    color: var(--black);
-    padding: 13px 16px;
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    outline: none;
-    transition: border-color 0.2s;
-    appearance: none;
-    border-radius: 0;
-  }
-  input:focus, textarea:focus, select:focus { border-color: var(--black); }
-  textarea { resize: vertical; min-height: 120px; }
-  .submit-btn {
-    background: var(--black);
-    color: var(--white);
-    border: none;
-    padding: 16px;
-    font-family: 'Lato', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-  .submit-btn:hover { opacity: 0.75; }
+			/* ─── CONTACT ─── */
+			.contact-section {
+				background: var(--off-white);
+				border-top: 1px solid var(--light-gray);
+			}
+			.contact-inner {
+				max-width: 1180px;
+				margin: 0 auto;
+				padding: 100px 60px;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 80px;
+			}
+			.contact-left {
+			}
+			.contact-tagline {
+				font-family: 'Playfair Display', serif;
+				font-size: clamp(32px, 4vw, 52px);
+				font-weight: 400;
+				line-height: 1.1;
+				margin-bottom: 24px;
+				color: var(--black);
+			}
+			.contact-tagline em {
+				font-style: italic;
+			}
+			.contact-body {
+				font-size: 14px;
+				line-height: 1.85;
+				color: var(--text-gray);
+				font-weight: 300;
+				margin-bottom: 40px;
+			}
+			.contact-detail {
+				font-size: 13px;
+				color: var(--black);
+				letter-spacing: 0.05em;
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				margin-bottom: 12px;
+			}
+			.contact-detail a {
+				color: var(--black);
+				text-decoration: none;
+				border-bottom: 1px solid var(--light-gray);
+			}
+			form {
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+			}
+			.form-row {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 16px;
+			}
+			.form-group {
+				display: flex;
+				flex-direction: column;
+				gap: 7px;
+			}
+			label {
+				font-size: 10px;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: var(--mid-gray);
+			}
+			input,
+			textarea,
+			select {
+				background: var(--white);
+				border: 1px solid var(--light-gray);
+				color: var(--black);
+				padding: 13px 16px;
+				font-family: 'Lato', sans-serif;
+				font-size: 14px;
+				font-weight: 300;
+				outline: none;
+				transition: border-color 0.2s;
+				appearance: none;
+				border-radius: 0;
+			}
+			input:focus,
+			textarea:focus,
+			select:focus {
+				border-color: var(--black);
+			}
+			textarea {
+				resize: vertical;
+				min-height: 120px;
+			}
+			.submit-btn {
+				background: var(--black);
+				color: var(--white);
+				border: none;
+				padding: 16px;
+				font-family: 'Lato', sans-serif;
+				font-size: 11px;
+				font-weight: 400;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				cursor: pointer;
+				transition: opacity 0.2s;
+			}
+			.submit-btn:hover {
+				opacity: 0.75;
+			}
 
-  /* ─── FOOTER ─── */
-  footer {
-    border-top: 1px solid var(--light-gray);
-    padding: 32px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--black);
-    text-decoration: none;
-  }
-  .footer-links {
-    display: flex;
-    gap: 24px;
-  }
-  .footer-links a {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-    text-decoration: none;
-  }
-  .footer-social { display: flex; gap: 20px; }
-  .footer-social a {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--mid-gray);
-    text-decoration: none;
-  }
+			/* ─── FOOTER ─── */
+			footer {
+				border-top: 1px solid var(--light-gray);
+				padding: 32px 60px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.footer-logo {
+				font-family: 'Playfair Display', serif;
+				font-size: 16px;
+				font-weight: 400;
+				color: var(--black);
+				text-decoration: none;
+			}
+			.footer-links {
+				display: flex;
+				gap: 24px;
+			}
+			.footer-links a {
+				font-size: 11px;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: var(--mid-gray);
+				text-decoration: none;
+			}
+			.footer-social {
+				display: flex;
+				gap: 20px;
+			}
+			.footer-social a {
+				font-size: 11px;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--mid-gray);
+				text-decoration: none;
+			}
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { min-height: 50vw; }
-    .hero-left { padding: 80px 24px 60px; }
-    .section { padding: 60px 24px; }
-    .why-inner { padding: 60px 24px; }
-    .why-grid { grid-template-columns: 1fr; }
-    .lessons-grid { grid-template-columns: 1fr; }
-    .trial-banner { grid-template-columns: 1fr; padding: 40px 24px; }
-    .outcomes-grid { grid-template-columns: 1fr 1fr; }
-    .contact-inner { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
-    .quote-section { padding: 60px 24px; }
-    .form-row { grid-template-columns: 1fr; }
-    .creds-bar { padding: 24px; }
-    .cred-item { padding: 0 24px; }
-    footer { padding: 24px; flex-wrap: wrap; gap: 16px; }
-  }
-</style>
-</head>
-<body>
+			/* ─── RESPONSIVE ─── */
+			@media (max-width: 900px) {
+				nav {
+					padding: 20px 24px;
+				}
+				.nav-links {
+					display: none;
+				}
+				.hero {
+					grid-template-columns: 1fr;
+				}
+				.hero-right {
+					min-height: 50vw;
+				}
+				.hero-left {
+					padding: 80px 24px 60px;
+				}
+				.section {
+					padding: 60px 24px;
+				}
+				.why-inner {
+					padding: 60px 24px;
+				}
+				.why-grid {
+					grid-template-columns: 1fr;
+				}
+				.lessons-grid {
+					grid-template-columns: 1fr;
+				}
+				.trial-banner {
+					grid-template-columns: 1fr;
+					padding: 40px 24px;
+				}
+				.outcomes-grid {
+					grid-template-columns: 1fr 1fr;
+				}
+				.contact-inner {
+					grid-template-columns: 1fr;
+					padding: 60px 24px;
+					gap: 48px;
+				}
+				.quote-section {
+					padding: 60px 24px;
+				}
+				.form-row {
+					grid-template-columns: 1fr;
+				}
+				.creds-bar {
+					padding: 24px;
+				}
+				.cred-item {
+					padding: 0 24px;
+				}
+				footer {
+					padding: 24px;
+					flex-wrap: wrap;
+					gap: 16px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- NAV -->
+		<nav>
+			<a
+				href="https://www.chihiroshibayama.com"
+				class="nav-logo"
+				>Chihiro Shibayama</a
+			>
+			<ul class="nav-links">
+				<li><a href="https://www.chihiroshibayama.com/bio-1">Biography</a></li>
+				<li>
+					<a
+						href="https://www.chihiroshibayama.com/teaching"
+						class="active"
+						>Teaching</a
+					>
+				</li>
+				<li><a href="https://www.chihiroshibayama.com/percussionblog">Blog</a></li>
+				<li><a href="https://www.chihiroshibayama.com/media">Media</a></li>
+				<li><a href="https://www.chihiroshibayama.com/store">Store</a></li>
+			</ul>
+			<a
+				href="#contact"
+				class="nav-contact"
+				>Inquire</a
+			>
+		</nav>
 
-<!-- NAV -->
-<nav>
-  <a href="https://www.chihiroshibayama.com" class="nav-logo">Chihiro Shibayama</a>
-  <ul class="nav-links">
-    <li><a href="https://www.chihiroshibayama.com/bio-1">Biography</a></li>
-    <li><a href="https://www.chihiroshibayama.com/teaching" class="active">Teaching</a></li>
-    <li><a href="https://www.chihiroshibayama.com/percussionblog">Blog</a></li>
-    <li><a href="https://www.chihiroshibayama.com/media">Media</a></li>
-    <li><a href="https://www.chihiroshibayama.com/store">Store</a></li>
-  </ul>
-  <a href="#contact" class="nav-contact">Inquire</a>
-</nav>
+		<!-- HERO -->
+		<section class="hero">
+			<div class="hero-left">
+				<p class="eyebrow">Longmont Percussion Academy</p>
+				<h1 class="hero-title">World-class<br />percussion<br /><em>instruction.</em></h1>
+				<p class="hero-desc">
+					Juilliard-trained, New York City–seasoned, and now right here in Longmont, CO. Private lessons for students of all ages — from first-time
+					beginners to pre-college and beyond.
+				</p>
+				<div class="hero-stats">
+					<div class="stat">
+						<span class="stat-num">25+</span>
+						<span class="stat-label">Years performing</span>
+					</div>
+					<div class="stat">
+						<span class="stat-num">20+</span>
+						<span class="stat-label">Years teaching</span>
+					</div>
+					<div class="stat">
+						<span class="stat-num">Juilliard</span>
+						<span class="stat-label">B.M. & M.M.</span>
+					</div>
+				</div>
+				<div class="btn-row">
+					<a
+						href="#contact"
+						class="btn-primary"
+						>Book a trial lesson</a
+					>
+					<a
+						href="#lessons"
+						class="btn-ghost"
+						>View options ↓</a
+					>
+				</div>
+			</div>
+			<div class="hero-right">
+				<img
+					src="https://images.squarespace-cdn.com/content/v1/54fe992ce4b081b61d82862f/caa7cb7d-e0f4-4d81-bb6d-8db1bfbec9d3/closesmileportrait2+2.jpg"
+					alt="Chihiro Shibayama"
+					class="hero-photo"
+					onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+				/>
+				<div
+					class="hero-photo-placeholder"
+					style="display: none"
+				>
+					<svg
+						width="52"
+						height="52"
+						viewBox="0 0 52 52"
+						fill="none"
+					>
+						<circle
+							cx="26"
+							cy="20"
+							r="11"
+							stroke="#ccc"
+							stroke-width="1.5"
+						/>
+						<path
+							d="M7 44c0-10.493 8.507-19 19-19s19 8.507 19 19"
+							stroke="#ccc"
+							stroke-width="1.5"
+							stroke-linecap="round"
+						/>
+					</svg>
+					<span class="photo-note">Photo</span>
+				</div>
+				<div class="nyt-pull">
+					<p class="nyt-quote">"…impressive soloist…"</p>
+					<p class="nyt-source">— The New York Times</p>
+				</div>
+			</div>
+		</section>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <p class="eyebrow">Longmont Percussion Academy</p>
-    <h1 class="hero-title">World-class<br>percussion<br><em>instruction.</em></h1>
-    <p class="hero-desc">Juilliard-trained, New York City–seasoned, and now right here in Longmont, CO. Private lessons for students of all ages — from first-time beginners to pre-college and beyond.</p>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">25+</span>
-        <span class="stat-label">Years performing</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">20+</span>
-        <span class="stat-label">Years teaching</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">Juilliard</span>
-        <span class="stat-label">B.M. & M.M.</span>
-      </div>
-    </div>
-    <div class="btn-row">
-      <a href="#contact" class="btn-primary">Book a trial lesson</a>
-      <a href="#lessons" class="btn-ghost">View options ↓</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <img src="https://images.squarespace-cdn.com/content/v1/54fe992ce4b081b61d82862f/caa7cb7d-e0f4-4d81-bb6d-8db1bfbec9d3/closesmileportrait2+2.jpg"
-         alt="Chihiro Shibayama" class="hero-photo"
-         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-    <div class="hero-photo-placeholder" style="display:none;">
-      <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="20" r="11" stroke="#ccc" stroke-width="1.5"/><path d="M7 44c0-10.493 8.507-19 19-19s19 8.507 19 19" stroke="#ccc" stroke-width="1.5" stroke-linecap="round"/></svg>
-      <span class="photo-note">Photo</span>
-    </div>
-    <div class="nyt-pull">
-      <p class="nyt-quote">"…impressive soloist…"</p>
-      <p class="nyt-source">— The New York Times</p>
-    </div>
-  </div>
-</section>
+		<!-- CREDENTIALS BAR -->
+		<div class="creds-bar">
+			<div class="cred-item">
+				<div class="cred-dot"></div>
+				The Juilliard School, B.M. & M.M.
+			</div>
+			<div class="cred-item">
+				<div class="cred-dot"></div>
+				Metropolitan Opera
+			</div>
+			<div class="cred-item">
+				<div class="cred-dot"></div>
+				Broadway: Miss Saigon, Cinderella & more
+			</div>
+			<div class="cred-item">
+				<div class="cred-dot"></div>
+				Carnegie Hall
+			</div>
+			<div class="cred-item">
+				<div class="cred-dot"></div>
+				Juilliard Pre-College faculty alumni
+			</div>
+		</div>
 
-<!-- CREDENTIALS BAR -->
-<div class="creds-bar">
-  <div class="cred-item"><div class="cred-dot"></div>The Juilliard School, B.M. & M.M.</div>
-  <div class="cred-item"><div class="cred-dot"></div>Metropolitan Opera</div>
-  <div class="cred-item"><div class="cred-dot"></div>Broadway: Miss Saigon, Cinderella & more</div>
-  <div class="cred-item"><div class="cred-dot"></div>Carnegie Hall</div>
-  <div class="cred-item"><div class="cred-dot"></div>Juilliard Pre-College faculty alumni</div>
-</div>
+		<!-- WHY SECTION -->
+		<section class="why-section">
+			<div class="why-inner">
+				<div class="section-header">
+					<p class="section-eyebrow">Why study with me</p>
+					<h2 class="section-title">A caliber of teaching<br />rarely found <em>outside New York.</em></h2>
+				</div>
+				<div class="why-grid">
+					<div class="why-card">
+						<span class="why-num">01</span>
+						<h3 class="why-title">Juilliard pedigree</h3>
+						<p class="why-text">
+							A Bachelor's and Master's from the world's most prestigious conservatory — and over a decade on New York City's most demanding stages.
+							That training now belongs to your student.
+						</p>
+					</div>
+					<div class="why-card">
+						<span class="why-num">02</span>
+						<h3 class="why-title">Real professional experience</h3>
+						<p class="why-text">
+							Broadway. The Metropolitan Opera. Carnegie Hall. Good Morning America. I don't just teach theory — I teach from 25+ years of performing
+							at the highest level, and that difference is felt immediately.
+						</p>
+					</div>
+					<div class="why-card">
+						<span class="why-num">03</span>
+						<h3 class="why-title">Whole-musician approach</h3>
+						<p class="why-text">
+							Every lesson weaves in rhythm literacy, ear training, music theory, and performance mindset. Students don't just learn to play — they
+							learn to think like musicians.
+						</p>
+					</div>
+					<div class="why-card">
+						<span class="why-num">04</span>
+						<h3 class="why-title">Intentionally small roster</h3>
+						<p class="why-text">
+							I keep my student list small on purpose. That means real relationships, consistent scheduling, and lessons that are genuinely tailored —
+							not recycled from the last student.
+						</p>
+					</div>
+					<div class="why-card">
+						<span class="why-num">05</span>
+						<h3 class="why-title">Bilingual instruction</h3>
+						<p class="why-text">
+							Fully fluent in Japanese and English, I welcome students and families from all backgrounds. Language is never a barrier to great musical
+							education.
+						</p>
+					</div>
+					<div class="why-card">
+						<span class="why-num">06</span>
+						<h3 class="why-title">A rare find in Colorado</h3>
+						<p class="why-text">
+							Juilliard-trained percussionists offering private lessons in the Boulder–Longmont area are extraordinarily rare. Families travel hours
+							for this level of instruction. You won't need to.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-<!-- WHY SECTION -->
-<section class="why-section">
-  <div class="why-inner">
-    <div class="section-header">
-      <p class="section-eyebrow">Why study with me</p>
-      <h2 class="section-title">A caliber of teaching<br>rarely found <em>outside New York.</em></h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <span class="why-num">01</span>
-        <h3 class="why-title">Juilliard pedigree</h3>
-        <p class="why-text">A Bachelor's and Master's from the world's most prestigious conservatory — and over a decade on New York City's most demanding stages. That training now belongs to your student.</p>
-      </div>
-      <div class="why-card">
-        <span class="why-num">02</span>
-        <h3 class="why-title">Real professional experience</h3>
-        <p class="why-text">Broadway. The Metropolitan Opera. Carnegie Hall. Good Morning America. I don't just teach theory — I teach from 25+ years of performing at the highest level, and that difference is felt immediately.</p>
-      </div>
-      <div class="why-card">
-        <span class="why-num">03</span>
-        <h3 class="why-title">Whole-musician approach</h3>
-        <p class="why-text">Every lesson weaves in rhythm literacy, ear training, music theory, and performance mindset. Students don't just learn to play — they learn to think like musicians.</p>
-      </div>
-      <div class="why-card">
-        <span class="why-num">04</span>
-        <h3 class="why-title">Intentionally small roster</h3>
-        <p class="why-text">I keep my student list small on purpose. That means real relationships, consistent scheduling, and lessons that are genuinely tailored — not recycled from the last student.</p>
-      </div>
-      <div class="why-card">
-        <span class="why-num">05</span>
-        <h3 class="why-title">Bilingual instruction</h3>
-        <p class="why-text">Fully fluent in Japanese and English, I welcome students and families from all backgrounds. Language is never a barrier to great musical education.</p>
-      </div>
-      <div class="why-card">
-        <span class="why-num">06</span>
-        <h3 class="why-title">A rare find in Colorado</h3>
-        <p class="why-text">Juilliard-trained percussionists offering private lessons in the Boulder–Longmont area are extraordinarily rare. Families travel hours for this level of instruction. You won't need to.</p>
-      </div>
-    </div>
-  </div>
-</section>
+		<!-- QUOTE -->
+		<div class="quote-section">
+			<p class="quote-text">"The goal isn't to play the notes. It's to understand why they matter — and to feel that understanding in your body."</p>
+			<p class="quote-source">— Chihiro Shibayama</p>
+		</div>
 
-<!-- QUOTE -->
-<div class="quote-section">
-  <p class="quote-text">"The goal isn't to play the notes. It's to understand why they matter — and to feel that understanding in your body."</p>
-  <p class="quote-source">— Chihiro Shibayama</p>
-</div>
+		<!-- LESSONS -->
+		<section
+			class="section"
+			id="lessons"
+		>
+			<div class="section-header">
+				<p class="section-eyebrow">Lesson options</p>
+				<h2 class="section-title">Find the right format<br /><em>for your student.</em></h2>
+			</div>
 
-<!-- LESSONS -->
-<section class="section" id="lessons">
-  <div class="section-header">
-    <p class="section-eyebrow">Lesson options</p>
-    <h2 class="section-title">Find the right format<br><em>for your student.</em></h2>
-  </div>
+			<div class="lessons-grid">
+				<!-- Private 1-on-1 -->
+				<div class="lesson-card dark">
+					<span class="lesson-tag">Most popular</span>
+					<h3 class="lesson-title">Private 1-on-1 Lessons</h3>
+					<p class="lesson-desc">
+						Individualized instruction built entirely around your student's goals — whether that's a first recital, All-State audition, or a lifelong
+						love of rhythm.
+					</p>
+					<div class="price-row">
+						<span class="price-main">$80</span>
+						<span class="price-unit">/ hr · semester package</span>
+					</div>
+					<p class="price-note">$100/hr drop-in · $30 for a 30-min trial lesson</p>
+					<ul class="lesson-features">
+						<li>Ages 6 to adult — all levels welcome</li>
+						<li>In-person (Longmont) or online worldwide</li>
+						<li>Semester packages include 2 makeup lessons</li>
+						<li>Snare, marimba, timpani & full battery</li>
+						<li>Audition & competition prep available</li>
+					</ul>
+					<a
+						href="#contact"
+						class="btn-lesson white-btn"
+						>Inquire about availability</a
+					>
+				</div>
 
-  <div class="lessons-grid">
-    <!-- Private 1-on-1 -->
-    <div class="lesson-card dark">
-      <span class="lesson-tag">Most popular</span>
-      <h3 class="lesson-title">Private 1-on-1 Lessons</h3>
-      <p class="lesson-desc">Individualized instruction built entirely around your student's goals — whether that's a first recital, All-State audition, or a lifelong love of rhythm.</p>
-      <div class="price-row">
-        <span class="price-main">$80</span>
-        <span class="price-unit">/ hr · semester package</span>
-      </div>
-      <p class="price-note">$100/hr drop-in · $30 for a 30-min trial lesson</p>
-      <ul class="lesson-features">
-        <li>Ages 6 to adult — all levels welcome</li>
-        <li>In-person (Longmont) or online worldwide</li>
-        <li>Semester packages include 2 makeup lessons</li>
-        <li>Snare, marimba, timpani & full battery</li>
-        <li>Audition & competition prep available</li>
-      </ul>
-      <a href="#contact" class="btn-lesson white-btn">Inquire about availability</a>
-    </div>
+				<!-- Semi-private -->
+				<div class="lesson-card">
+					<span class="lesson-tag">Ages 6–11 · New</span>
+					<h3 class="lesson-title">Kids' Semi-Private</h3>
+					<p class="lesson-desc">
+						Siblings or friends learn together in a fun, collaborative session — max 2 students. Includes rhythm games, ensemble work, and
+						age-appropriate technique.
+					</p>
+					<div class="price-row">
+						<span class="price-main">$40</span>
+						<span class="price-unit">/ hr per student · semester</span>
+					</div>
+					<p class="price-note">$50/hr drop-in · In-person Longmont only</p>
+					<ul class="lesson-features">
+						<li>Max 2 students per session</li>
+						<li>Similar age & level recommended</li>
+						<li>Rhythm games & ensemble playing</li>
+						<li>Semester packages include 2 makeup lessons</li>
+						<li>30 or 60-minute sessions available</li>
+					</ul>
+					<a
+						href="#contact"
+						class="btn-lesson outline"
+						>Inquire about availability</a
+					>
+				</div>
+			</div>
 
-    <!-- Semi-private -->
-    <div class="lesson-card">
-      <span class="lesson-tag">Ages 6–11 · New</span>
-      <h3 class="lesson-title">Kids' Semi-Private</h3>
-      <p class="lesson-desc">Siblings or friends learn together in a fun, collaborative session — max 2 students. Includes rhythm games, ensemble work, and age-appropriate technique.</p>
-      <div class="price-row">
-        <span class="price-main">$40</span>
-        <span class="price-unit">/ hr per student · semester</span>
-      </div>
-      <p class="price-note">$50/hr drop-in · In-person Longmont only</p>
-      <ul class="lesson-features">
-        <li>Max 2 students per session</li>
-        <li>Similar age & level recommended</li>
-        <li>Rhythm games & ensemble playing</li>
-        <li>Semester packages include 2 makeup lessons</li>
-        <li>30 or 60-minute sessions available</li>
-      </ul>
-      <a href="#contact" class="btn-lesson outline">Inquire about availability</a>
-    </div>
-  </div>
+			<!-- Trial banner -->
+			<div class="trial-banner">
+				<div>
+					<p class="trial-title">Not sure where to start? Try a trial lesson.</p>
+					<p class="trial-desc">
+						30-minute private trial lesson for $30 — in-person or online. Or book a free 15-minute consultation to discuss goals and find the right
+						fit.
+					</p>
+				</div>
+				<a
+					href="#contact"
+					class="btn-primary"
+					>Book a trial</a
+				>
+			</div>
+		</section>
 
-  <!-- Trial banner -->
-  <div class="trial-banner">
-    <div>
-      <p class="trial-title">Not sure where to start? Try a trial lesson.</p>
-      <p class="trial-desc">30-minute private trial lesson for $30 — in-person or online. Or book a free 15-minute consultation to discuss goals and find the right fit.</p>
-    </div>
-    <a href="#contact" class="btn-primary">Book a trial</a>
-  </div>
-</section>
+		<!-- STUDENT OUTCOMES -->
+		<section
+			class="section"
+			style="border-top: 1px solid var(--light-gray)"
+		>
+			<div class="section-header">
+				<p class="section-eyebrow">Student outcomes</p>
+				<h2 class="section-title">What students <em>achieve.</em></h2>
+			</div>
+			<div class="outcomes-grid">
+				<div class="outcome-card">
+					<span class="outcome-num">Pre-College</span>
+					<p class="outcome-title">Juilliard acceptance</p>
+					<p class="outcome-desc">
+						Students have earned spots at Juilliard Pre-College — one of the most selective music programs in the world for young musicians.
+					</p>
+				</div>
+				<div class="outcome-card">
+					<span class="outcome-num">All-State</span>
+					<p class="outcome-title">Audition success</p>
+					<p class="outcome-desc">
+						Targeted preparation for school ensembles, regional, and All-State auditions — with a proven method drawn from conservatory-level
+						training.
+					</p>
+				</div>
+				<div class="outcome-card">
+					<span class="outcome-num">Recitals</span>
+					<p class="outcome-title">Performance confidence</p>
+					<p class="outcome-desc">
+						Students regularly present recitals and win school performance opportunities — because the work we do in the studio is designed for the
+						stage.
+					</p>
+				</div>
+			</div>
+		</section>
 
-<!-- STUDENT OUTCOMES -->
-<section class="section" style="border-top: 1px solid var(--light-gray);">
-  <div class="section-header">
-    <p class="section-eyebrow">Student outcomes</p>
-    <h2 class="section-title">What students <em>achieve.</em></h2>
-  </div>
-  <div class="outcomes-grid">
-    <div class="outcome-card">
-      <span class="outcome-num">Pre-College</span>
-      <p class="outcome-title">Juilliard acceptance</p>
-      <p class="outcome-desc">Students have earned spots at Juilliard Pre-College — one of the most selective music programs in the world for young musicians.</p>
-    </div>
-    <div class="outcome-card">
-      <span class="outcome-num">All-State</span>
-      <p class="outcome-title">Audition success</p>
-      <p class="outcome-desc">Targeted preparation for school ensembles, regional, and All-State auditions — with a proven method drawn from conservatory-level training.</p>
-    </div>
-    <div class="outcome-card">
-      <span class="outcome-num">Recitals</span>
-      <p class="outcome-title">Performance confidence</p>
-      <p class="outcome-desc">Students regularly present recitals and win school performance opportunities — because the work we do in the studio is designed for the stage.</p>
-    </div>
-  </div>
-</section>
+		<!-- FAQ -->
+		<section class="section faq-section">
+			<div class="section-header">
+				<p class="section-eyebrow">Frequently asked</p>
+				<h2 class="section-title"><em>Questions</em> answered.</h2>
+			</div>
+			<div
+				class="faq-item"
+				onclick="toggleFaq(this)"
+			>
+				<div class="faq-q">Do I need my own instrument to start?<span class="faq-toggle">+</span></div>
+				<div class="faq-a">
+					Not necessarily! For beginners, I'll guide you on exactly what to get and when. In-person students have access to instruments in my studio.
+					Online students will need some equipment at home — I'm happy to recommend affordable starter options based on your goals.
+				</div>
+			</div>
+			<div
+				class="faq-item"
+				onclick="toggleFaq(this)"
+			>
+				<div class="faq-q">What ages do you teach?<span class="faq-toggle">+</span></div>
+				<div class="faq-a">
+					I teach students of all ages — starting around age 6 for beginners — through teens, adults, and returning musicians. My approach is always
+					tailored to each student's goals, experience, and learning style. It's never too late to start.
+				</div>
+			</div>
+			<div
+				class="faq-item"
+				onclick="toggleFaq(this)"
+			>
+				<div class="faq-q">Do you offer online lessons?<span class="faq-toggle">+</span></div>
+				<div class="faq-a">
+					Yes! Private 1-on-1 lessons are available both in-person (Longmont, CO) and online worldwide. Semi-private kids' lessons are currently
+					in-person only.
+				</div>
+			</div>
+			<div
+				class="faq-item"
+				onclick="toggleFaq(this)"
+			>
+				<div class="faq-q">What is your cancellation and makeup policy?<span class="faq-toggle">+</span></div>
+				<div class="faq-a">
+					Semester packages include 2 makeup lessons per term. Drop-in lessons must be canceled at least 24 hours in advance to avoid being charged. I
+					understand life happens and always try to be flexible when possible.
+				</div>
+			</div>
+			<div
+				class="faq-item"
+				onclick="toggleFaq(this)"
+			>
+				<div class="faq-q">What percussion instruments do you teach?<span class="faq-toggle">+</span></div>
+				<div class="faq-a">
+					I teach the full percussion battery — snare drum, marimba, xylophone, vibraphone, timpani, and drum kit fundamentals. Students at the
+					pre-college level can expect to develop proficiency across all major instruments in the classical percussion repertoire.
+				</div>
+			</div>
+		</section>
 
-<!-- FAQ -->
-<section class="section faq-section">
-  <div class="section-header">
-    <p class="section-eyebrow">Frequently asked</p>
-    <h2 class="section-title"><em>Questions</em> answered.</h2>
-  </div>
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-q">Do I need my own instrument to start?<span class="faq-toggle">+</span></div>
-    <div class="faq-a">Not necessarily! For beginners, I'll guide you on exactly what to get and when. In-person students have access to instruments in my studio. Online students will need some equipment at home — I'm happy to recommend affordable starter options based on your goals.</div>
-  </div>
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-q">What ages do you teach?<span class="faq-toggle">+</span></div>
-    <div class="faq-a">I teach students of all ages — starting around age 6 for beginners — through teens, adults, and returning musicians. My approach is always tailored to each student's goals, experience, and learning style. It's never too late to start.</div>
-  </div>
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-q">Do you offer online lessons?<span class="faq-toggle">+</span></div>
-    <div class="faq-a">Yes! Private 1-on-1 lessons are available both in-person (Longmont, CO) and online worldwide. Semi-private kids' lessons are currently in-person only.</div>
-  </div>
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-q">What is your cancellation and makeup policy?<span class="faq-toggle">+</span></div>
-    <div class="faq-a">Semester packages include 2 makeup lessons per term. Drop-in lessons must be canceled at least 24 hours in advance to avoid being charged. I understand life happens and always try to be flexible when possible.</div>
-  </div>
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-q">What percussion instruments do you teach?<span class="faq-toggle">+</span></div>
-    <div class="faq-a">I teach the full percussion battery — snare drum, marimba, xylophone, vibraphone, timpani, and drum kit fundamentals. Students at the pre-college level can expect to develop proficiency across all major instruments in the classical percussion repertoire.</div>
-  </div>
-</section>
+		<!-- CONTACT -->
+		<div
+			class="contact-section"
+			id="contact"
+		>
+			<div class="contact-inner">
+				<div class="contact-left">
+					<h2 class="contact-tagline">Ready to<br /><em>begin?</em></h2>
+					<p class="contact-body">
+						Spots are limited — I keep my roster intentionally small to give every student the attention they deserve. Reach out to ask about current
+						availability and to schedule your trial lesson or free consultation.
+					</p>
+					<p class="contact-detail"><span>✉</span> <a href="mailto:Chihiro@chihiroshibayama.com">Chihiro@chihiroshibayama.com</a></p>
+					<p class="contact-detail"><span>📍</span> Longmont, Colorado · Online worldwide</p>
+				</div>
+				<div>
+					<form
+						action="https://formspree.io/f/mreyadbw"
+						method="POST"
+					>
+						<div class="form-row">
+							<div class="form-group">
+								<label for="name">Your name</label>
+								<input
+									type="text"
+									id="name"
+									placeholder="Jane Smith"
+								/>
+							</div>
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input
+									type="email"
+									id="email"
+									placeholder="jane@email.com"
+								/>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group">
+								<label for="age">Student's age</label>
+								<input
+									type="text"
+									id="age"
+									placeholder="e.g. 12, or Adult"
+								/>
+							</div>
+							<div class="form-group">
+								<label for="level">Experience level</label>
+								<select id="level">
+									<option value="">Select...</option>
+									<option>Complete beginner</option>
+									<option>Some experience (1–2 years)</option>
+									<option>Intermediate (3–5 years)</option>
+									<option>Advanced / audition prep</option>
+									<option>Adult learner</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="goals">Goals & questions</label>
+							<textarea
+								id="goals"
+								placeholder="What are you hoping to achieve? Any upcoming auditions or performances?"
+							></textarea>
+						</div>
+						<button
+							type="submit"
+							class="submit-btn"
+						>
+							Send inquiry →
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
 
-<!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <div class="contact-inner">
-    <div class="contact-left">
-      <h2 class="contact-tagline">Ready to<br><em>begin?</em></h2>
-      <p class="contact-body">Spots are limited — I keep my roster intentionally small to give every student the attention they deserve. Reach out to ask about current availability and to schedule your trial lesson or free consultation.</p>
-      <p class="contact-detail"><span>✉</span> <a href="mailto:Chihiro@chihiroshibayama.com">Chihiro@chihiroshibayama.com</a></p>
-      <p class="contact-detail"><span>📍</span> Longmont, Colorado · Online worldwide</p>
-    </div>
-    <div>
-      <form onsubmit="return false;">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Your name</label>
-            <input type="text" id="name" placeholder="Jane Smith">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="jane@email.com">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="age">Student's age</label>
-            <input type="text" id="age" placeholder="e.g. 12, or Adult">
-          </div>
-          <div class="form-group">
-            <label for="level">Experience level</label>
-            <select id="level">
-              <option value="">Select...</option>
-              <option>Complete beginner</option>
-              <option>Some experience (1–2 years)</option>
-              <option>Intermediate (3–5 years)</option>
-              <option>Advanced / audition prep</option>
-              <option>Adult learner</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="goals">Goals & questions</label>
-          <textarea id="goals" placeholder="What are you hoping to achieve? Any upcoming auditions or performances?"></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Send inquiry →</button>
-      </form>
-    </div>
-  </div>
-</div>
+		<!-- FOOTER -->
+		<footer>
+			<a
+				href="https://www.chihiroshibayama.com"
+				class="footer-logo"
+				>Chihiro Shibayama</a
+			>
+			<div class="footer-links">
+				<a href="https://www.chihiroshibayama.com/bio-1">Biography</a>
+				<a href="https://www.chihiroshibayama.com/media">Media</a>
+				<a href="https://www.chihiroshibayama.com/store">Store</a>
+			</div>
+			<div class="footer-social">
+				<a
+					href="https://www.youtube.com/channel/UCdYfi421onANf2QRsDuBdHQ"
+					target="_blank"
+					>YouTube</a
+				>
+				<a
+					href="https://www.instagram.com/chihiroplayspercussion/"
+					target="_blank"
+					>Instagram</a
+				>
+				<a
+					href="https://www.facebook.com/ChihiroPercussionist"
+					target="_blank"
+					>Facebook</a
+				>
+			</div>
+		</footer>
 
-<!-- FOOTER -->
-<footer>
-  <a href="https://www.chihiroshibayama.com" class="footer-logo">Chihiro Shibayama</a>
-  <div class="footer-links">
-    <a href="https://www.chihiroshibayama.com/bio-1">Biography</a>
-    <a href="https://www.chihiroshibayama.com/media">Media</a>
-    <a href="https://www.chihiroshibayama.com/store">Store</a>
-  </div>
-  <div class="footer-social">
-    <a href="https://www.youtube.com/channel/UCdYfi421onANf2QRsDuBdHQ" target="_blank">YouTube</a>
-    <a href="https://www.instagram.com/chihiroplayspercussion/" target="_blank">Instagram</a>
-    <a href="https://www.facebook.com/ChihiroPercussionist" target="_blank">Facebook</a>
-  </div>
-</footer>
-
-<script>
-  function toggleFaq(el) {
-    const ans = el.querySelector('.faq-a');
-    const toggle = el.querySelector('.faq-toggle');
-    const isOpen = ans.classList.contains('open');
-    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
-    document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
-    if (!isOpen) {
-      ans.classList.add('open');
-      toggle.textContent = '−';
-    }
-  }
-</script>
-
-</body>
+		<script>
+			function toggleFaq(el) {
+				const ans = el.querySelector('.faq-a');
+				const toggle = el.querySelector('.faq-toggle');
+				const isOpen = ans.classList.contains('open');
+				document.querySelectorAll('.faq-a').forEach((a) => a.classList.remove('open'));
+				document.querySelectorAll('.faq-toggle').forEach((t) => (t.textContent = '+'));
+				if (!isOpen) {
+					ans.classList.add('open');
+					toggle.textContent = '−';
+				}
+			}
+		</script>
+	</body>
 </html>
