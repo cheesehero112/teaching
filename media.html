@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media — Chihiro Shibayama</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --off-white: #f8f7f5;
+    --light-gray: #e8e6e2;
+    --mid-gray: #888;
+    --text-gray: #444;
+    --accent: #C4622D;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Lato',sans-serif; color:var(--black); background:var(--white); font-weight:300; line-height:1.7; }
+
+  /* NAV */
+  nav { display:flex; justify-content:space-between; align-items:center; padding:28px 60px; border-bottom:1px solid var(--light-gray); position:sticky; top:0; background:rgba(255,255,255,0.97); z-index:100; backdrop-filter:blur(4px); }
+  .nav-logo { font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:400; color:var(--black); text-decoration:none; letter-spacing:0.04em; }
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--black); text-decoration:none; font-weight:400; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--mid-gray); }
+  .nav-links a.active { border-bottom:1px solid var(--black); }
+  .nav-contact { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; color:var(--black); border:1px solid var(--black); padding:8px 20px; transition:all 0.2s; }
+  .nav-contact:hover { background:var(--black); color:var(--white); }
+
+  /* PAGE HEADER */
+  .page-header { padding:80px 70px 64px; border-bottom:1px solid var(--light-gray); max-width:1180px; margin:0 auto; }
+  .eyebrow { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--mid-gray); margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+  .eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--mid-gray); flex-shrink:0; }
+  .page-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(44px,5vw,72px); font-weight:400; line-height:1.08; color:var(--black); }
+  .page-title em { font-style:italic; color:var(--accent); }
+
+  /* TAB NAV */
+  .tab-nav { border-bottom:1px solid var(--light-gray); padding:0 70px; display:flex; gap:0; position:sticky; top:85px; background:rgba(255,255,255,0.97); z-index:90; backdrop-filter:blur(4px); }
+  .tab-btn { font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mid-gray); background:none; border:none; cursor:pointer; padding:20px 32px 18px; border-bottom:2px solid transparent; font-family:'Lato',sans-serif; font-weight:400; transition:all 0.2s; }
+  .tab-btn:hover { color:var(--black); }
+  .tab-btn.active { color:var(--black); border-bottom-color:var(--accent); }
+
+  /* SECTIONS */
+  .media-section { display:none; padding:80px 70px 100px; max-width:1180px; margin:0 auto; }
+  .media-section.active { display:block; }
+  .section-intro { font-size:15px; color:var(--text-gray); font-weight:300; max-width:600px; margin-bottom:60px; line-height:1.8; }
+
+  /* WATCH — video grid */
+  .video-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--light-gray); border:1px solid var(--light-gray); }
+  .video-card { background:var(--white); text-decoration:none; display:block; transition:background 0.2s; }
+  .video-card:hover { background:var(--off-white); }
+  .video-thumb { width:100%; aspect-ratio:16/9; background:var(--off-white); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+  .video-thumb iframe { width:100%; height:100%; border:none; pointer-events:none; }
+  .play-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(10,10,10,0.2); transition:background 0.2s; }
+  .video-card:hover .play-overlay { background:rgba(10,10,10,0.4); }
+  .play-btn { width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.9); display:flex; align-items:center; justify-content:center; }
+  .play-btn svg { margin-left:3px; }
+  .video-info { padding:20px 24px; }
+  .video-tag { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:8px; }
+  .video-title { font-family:'Playfair Display',Georgia,serif; font-size:16px; font-weight:400; color:var(--black); line-height:1.4; }
+
+  /* READ — press grid */
+  .press-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--light-gray); border:1px solid var(--light-gray); }
+  .press-card { background:var(--white); padding:44px 40px; text-decoration:none; display:flex; flex-direction:column; gap:16px; transition:background 0.2s; }
+  .press-card:hover { background:var(--off-white); }
+  .press-type { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); }
+  .press-title { font-family:'Playfair Display',Georgia,serif; font-size:22px; font-weight:400; color:var(--black); line-height:1.35; }
+  .press-pub { font-size:12px; letter-spacing:0.08em; color:var(--mid-gray); text-transform:uppercase; }
+  .press-desc { font-size:14px; color:var(--text-gray); line-height:1.8; font-weight:300; }
+  .press-link { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-top:auto; }
+
+  /* LISTEN — recordings */
+  .listen-intro-block { background:var(--off-white); padding:40px 48px; border-left:3px solid var(--accent); margin-bottom:48px; }
+  .listen-intro-title { font-family:'Playfair Display',Georgia,serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:8px; }
+  .listen-intro-text { font-size:14px; color:var(--text-gray); font-weight:300; line-height:1.75; }
+  .recordings-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--light-gray); border:1px solid var(--light-gray); }
+  .recording-card { background:var(--white); padding:36px 32px; text-decoration:none; display:flex; flex-direction:column; gap:12px; transition:background 0.2s; }
+  .recording-card:hover { background:var(--off-white); }
+  .recording-year { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mid-gray); }
+  .recording-title { font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:400; color:var(--black); line-height:1.35; }
+  .recording-ensemble { font-size:13px; color:var(--text-gray); font-weight:300; }
+  .recording-link { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-top:auto; }
+
+  /* FOOTER */
+  footer { background:var(--black); padding:60px 70px 40px; }
+  .footer-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:60px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:40px; }
+  .footer-logo { font-family:'Playfair Display',Georgia,serif; font-size:20px; font-weight:400; color:var(--white); text-decoration:none; display:block; margin-bottom:12px; }
+  .footer-tagline { font-size:12px; color:rgba(255,255,255,0.35); }
+  .footer-col-title { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:20px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .footer-links a { font-size:13px; color:rgba(255,255,255,0.55); text-decoration:none; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--white); }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; }
+  .footer-copy { font-size:11px; color:rgba(255,255,255,0.2); }
+  .footer-social { display:flex; gap:24px; }
+  .footer-social a { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.3); text-decoration:none; transition:color 0.2s; }
+  .footer-social a:hover { color:var(--white); }
+
+  @media(max-width:1024px) {
+    .video-grid { grid-template-columns:1fr 1fr; }
+    .recordings-grid { grid-template-columns:1fr 1fr; }
+    .footer-top { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:768px) {
+    nav { padding:20px 24px; }
+    .nav-links { display:none; }
+    .page-header { padding:60px 24px 40px; }
+    .tab-nav { padding:0 24px; overflow-x:auto; }
+    .media-section { padding:48px 24px 60px; }
+    .video-grid { grid-template-columns:1fr; }
+    .press-grid { grid-template-columns:1fr; }
+    .recordings-grid { grid-template-columns:1fr; }
+    footer { padding:48px 24px 32px; }
+    .footer-top { grid-template-columns:1fr; gap:36px; }
+    .footer-bottom { flex-direction:column; gap:16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Chihiro Shibayama</a>
+  <ul class="nav-links">
+    <li><a href="bio.html">Biography</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="media.html" class="active">Media</a></li>
+  </ul>
+  <a href="teaching.html" class="nav-contact">Private Lessons</a>
+</nav>
+
+<div class="page-header">
+  <p class="eyebrow">Watch · Read · Listen</p>
+  <h1 class="page-title">Media & <em>Press.</em></h1>
+</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('watch', this)">Watch</button>
+  <button class="tab-btn" onclick="showTab('read', this)">Read</button>
+  <button class="tab-btn" onclick="showTab('listen', this)">Listen</button>
+</div>
+
+<!-- WATCH -->
+<div class="media-section active" id="tab-watch">
+  <p class="section-intro">Performances, compositions, and behind-the-scenes footage from Chihiro's career on stage and in the studio.</p>
+  <div class="video-grid">
+
+    <a href="https://www.youtube.com/watch?v=p4qC9HgXy1c" target="_blank" class="video-card">
+      <div class="video-thumb" style="background:#1a1008;">
+        <div class="play-overlay">
+          <div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="#0a0a0a"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="video-info">
+        <span class="video-tag">Broadway · Featured</span>
+        <p class="video-title">Miss Saigon — Percussionist's Perspective (Drum Cam)</p>
+      </div>
+    </a>
+
+    <a href="https://youtu.be/-zghGuoVISY?si=b7NifC_5ZT2esSpw" target="_blank" class="video-card">
+      <div class="video-thumb" style="background:#1a1008;">
+        <div class="play-overlay">
+          <div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="#0a0a0a"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="video-info">
+        <span class="video-tag">Marimba</span>
+        <p class="video-title">Blackbird — Paul McCartney / The Beatles (Marimba Cover)</p>
+      </div>
+    </a>
+
+    <a href="https://www.chihiroshibayama.com/videos/2022/1/26/8plxfiwbablejm21hauijh3iod6kg5" target="_blank" class="video-card">
+      <div class="video-thumb" style="background:#1a1008;">
+        <div class="play-overlay">
+          <div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="#0a0a0a"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="video-info">
+        <span class="video-tag">Marimba</span>
+        <p class="video-title">J.S. Bach — Two Part Invention No. 8 (2 Marimbas)</p>
+      </div>
+    </a>
+
+    <a href="https://www.chihiroshibayama.com/videos/2022/1/18/bachprelude" target="_blank" class="video-card">
+      <div class="video-thumb" style="background:#1a1008;">
+        <div class="play-overlay">
+          <div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="#0a0a0a"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="video-info">
+        <span class="video-tag">Marimba</span>
+        <p class="video-title">J.S. Bach — Prelude from The Well-Tempered Clavier Book 1</p>
+      </div>
+    </a>
+
+    <a href="https://www.chihiroshibayama.com/videos/2022/1/18/moonriver" target="_blank" class="video-card">
+      <div class="video-thumb" style="background:#1a1008;">
+        <div class="play-overlay">
+          <div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="#0a0a0a"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="video-info">
+        <span class="video-tag">Marimba</span>
+        <p class="video-title">Moon River — 5 Octave Marimba</p>
+      </div>
+    </a>
+
+    <a href="https://www.chihiroshibayama.com/videos/2020/11/1/jk5f4gloept2ygouoknl0vf1rooyf2" target="_blank" class="video-card">
+      <div class="video-thumb" style="background:#1a1008;">
+        <div class="play-overlay">
+          <div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="#0a0a0a"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="video-info">
+        <span class="video-tag">Music Video</span>
+        <p class="video-title">Quarantini — Music by Yui Kitamura & Percussion by Chihiro</p>
+      </div>
+    </a>
+
+    <a href="https://www.chihiroshibayama.com/videos/2021/2/26/4u3a4l92jvn3962zsn7qs8qciw570v" target="_blank" class="video-card">
+      <div class="video-thumb" style="background:#1a1008;">
+        <div class="play-overlay">
+          <div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="#0a0a0a"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="video-info">
+        <span class="video-tag">Original</span>
+        <p class="video-title">Willie's Dream — Artist-In-Vacancy, Newburgh Community Land Bank</p>
+      </div>
+    </a>
+
+    <a href="https://www.chihiroshibayama.com/videos/2020/11/1/gjgju9zzklw3r7v8ne21p3fy000bcq" target="_blank" class="video-card">
+      <div class="video-thumb" style="background:#1a1008;">
+        <div class="play-overlay">
+          <div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="#0a0a0a"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="video-info">
+        <span class="video-tag">Original · Animation</span>
+        <p class="video-title">Get Out The Vote March — Music Arrangement & Original Animation</p>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/channel/UCdYfi421onANf2QRsDuBdHQ" target="_blank" class="video-card">
+      <div class="video-thumb" style="background:var(--off-white); align-items:center; justify-content:center;">
+        <div style="text-align:center; padding:24px;">
+          <p style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:18px; color:var(--mid-gray);">View all videos</p>
+          <p style="font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-top:8px;">YouTube Channel →</p>
+        </div>
+      </div>
+      <div class="video-info">
+        <span class="video-tag">YouTube</span>
+        <p class="video-title">More performances, lessons & original content</p>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- READ -->
+<div class="media-section" id="tab-read">
+  <p class="section-intro">Press coverage, feature articles, and podcast appearances.</p>
+  <div class="press-grid">
+
+    <a href="https://www.local802afm.org/allegro/articles/the-rhythm-of-broadway/" target="_blank" class="press-card">
+      <span class="press-type">Magazine Feature</span>
+      <h2 class="press-title">The Rhythm of Broadway</h2>
+      <p class="press-pub">Allegro Magazine — March 2020</p>
+      <p class="press-desc">Chihiro was one of eight featured percussionists who work on Broadway in New York City. Each musician talks about how they got to Broadway and what it's like to perform in Broadway musicals.</p>
+      <span class="press-link">Read article →</span>
+    </a>
+
+    <a href="/s/InternationalMusicianMarch2021coverarticleonly_Page_2.png" target="_blank" class="press-card">
+      <span class="press-type">Cover Feature</span>
+      <h2 class="press-title">"Freelance Percussionist Chihiro Shibayama Says Community is Key to Success"</h2>
+      <p class="press-pub">International Musician — March 2021</p>
+      <p class="press-desc">A feature profile on Chihiro's career, philosophy, and path through the New York music world. Reprinted with permission from International Musician magazine.</p>
+      <span class="press-link">Read article →</span>
+    </a>
+
+    <a href="https://themillermachine.com/blogs/articles/my-way-to-broadway-by-chihiro-shibayama" target="_blank" class="press-card">
+      <span class="press-type">Commissioned Article</span>
+      <h2 class="press-title">My Way to Broadway</h2>
+      <p class="press-pub">The Miller Machine</p>
+      <p class="press-desc">Written in commission from Billy Miller, creator of the Miller Machine. Chihiro shares the full story of how she landed her first Broadway show — the auditions, the preparation, and the reality of pit life.</p>
+      <span class="press-link">Read article →</span>
+    </a>
+
+    <a href="https://atpercussion.podbean.com/e/percussion-300-playing-on-broadway-with-chihiro-shibayama/" target="_blank" class="press-card">
+      <span class="press-type">Podcast · Episode 300</span>
+      <h2 class="press-title">Playing on Broadway with Chihiro Shibayama</h2>
+      <p class="press-pub">@Percussion Podcast</p>
+      <p class="press-desc">Chihiro talks about her journey to playing on Broadway on the 300th episode of @Percussion Podcast, hosted by Karli Viña, Casey Cangelosi, and Brian Nozny.</p>
+      <span class="press-link">Listen to episode →</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- LISTEN -->
+<div class="media-section" id="tab-listen">
+  <p class="section-intro">Recordings from Chihiro's work as a chamber musician, ensemble member, and collaborator.</p>
+
+  <div class="listen-intro-block">
+    <p class="listen-intro-title">Isabel — Zachary Joseph © 2017, Element5</p>
+    <p class="listen-intro-text">Jia Xu, Violin · Brian Sanders, Cello · Jen Volmer, Viola · Chihiro Shibayama, Marimba · Zachary Joseph, DJ & Producer. Sound Engineer: Joshua Valleau. Element5 writes and performs original works drawing from genres of today and yesterday.</p>
+  </div>
+
+  <div class="recordings-grid">
+
+    <a href="https://www.amazon.com/Thrive-Routine-Blu-Ray-Audio-CD/dp/B01N6HQQCR" target="_blank" class="recording-card">
+      <span class="recording-year">2017</span>
+      <h3 class="recording-title">Thrive on Routine</h3>
+      <p class="recording-ensemble">American Contemporary Music Ensemble (ACME)</p>
+      <span class="recording-link">View on Amazon →</span>
+    </a>
+
+    <a href="https://cantaloupemusic.com/albums/alarm-will-sound-presents-modernists" target="_blank" class="recording-card">
+      <span class="recording-year">2016</span>
+      <h3 class="recording-title">Alarm Will Sound Presents Modernists</h3>
+      <p class="recording-ensemble">Alarm Will Sound</p>
+      <span class="recording-link">View recording →</span>
+    </a>
+
+    <a href="https://www.amazon.com/Joseph-American-Contemporary-Music-Ensemble/dp/B00APMTPJU" target="_blank" class="recording-card">
+      <span class="recording-year">2013</span>
+      <h3 class="recording-title">Joseph Byrd: NYC 1960–1963</h3>
+      <p class="recording-ensemble">American Contemporary Music Ensemble (ACME)</p>
+      <span class="recording-link">View on Amazon →</span>
+    </a>
+
+    <a href="https://www.amazon.com/Disintegration-Loops-William-Basinski/dp/B008NCW7L2/" target="_blank" class="recording-card">
+      <span class="recording-year">2013</span>
+      <h3 class="recording-title">The Disintegration Loops [I–IV]</h3>
+      <p class="recording-ensemble">William Basinski</p>
+      <span class="recording-link">View on Amazon →</span>
+    </a>
+
+    <a href="https://www.amazon.com/Jose-Bevia-Symphony-Enigmas-2009-12-08/dp/B01MFFNG7K" target="_blank" class="recording-card">
+      <span class="recording-year">2009</span>
+      <h3 class="recording-title">José Beviá: Three Enigmas, for orchestra</h3>
+      <p class="recording-ensemble">Arielle / Vit Micka / Moravian Philharmonic Orchestra</p>
+      <span class="recording-link">View on Amazon →</span>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">Chihiro Shibayama</a>
+      <p class="footer-tagline">Percussionist · Educator · Longmont, CO</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Pages</p>
+      <ul class="footer-links">
+        <li><a href="bio.html">Biography</a></li>
+        <li><a href="teaching.html">Teaching & Lessons</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="media.html">Media</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Connect</p>
+      <ul class="footer-links">
+        <li><a href="mailto:Chihiro@chihiroshibayama.com">Chihiro@chihiroshibayama.com</a></li>
+        <li><a href="https://www.youtube.com/channel/UCdYfi421onANf2QRsDuBdHQ" target="_blank">YouTube</a></li>
+        <li><a href="https://www.instagram.com/chihiroplayspercussion/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/ChihiroPercussionist" target="_blank">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Chihiro Shibayama. All rights reserved.</p>
+    <div class="footer-social">
+      <a href="https://www.youtube.com/channel/UCdYfi421onANf2QRsDuBdHQ" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/chihiroplayspercussion/" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/ChihiroPercussionist" target="_blank">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showTab(name, btn) {
+    document.querySelectorAll('.media-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
