@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chihiro Shibayama — Percussionist & Educator</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --off-white: #f8f7f5;
+    --light-gray: #e8e6e2;
+    --mid-gray: #888;
+    --text-gray: #444;
+    --accent: #C4622D;
+    --accent-light: rgba(196,98,45,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Lato',sans-serif; color:var(--black); background:var(--white); font-weight:300; line-height:1.7; overflow-x:hidden; }
+
+  /* NAV */
+  nav { display:flex; justify-content:space-between; align-items:center; padding:28px 60px; border-bottom:1px solid var(--light-gray); position:fixed; top:0; left:0; right:0; background:rgba(255,255,255,0.97); z-index:100; backdrop-filter:blur(4px); }
+  .nav-logo { font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:400; color:var(--black); text-decoration:none; letter-spacing:0.04em; }
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--black); text-decoration:none; font-weight:400; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--mid-gray); }
+  .nav-contact { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; color:var(--black); border:1px solid var(--black); padding:8px 20px; transition:all 0.2s; }
+  .nav-contact:hover { background:var(--black); color:var(--white); }
+
+  /* HERO */
+  .hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; padding-top:85px; }
+  .hero-left { display:flex; flex-direction:column; justify-content:center; padding:80px 70px; border-right:1px solid var(--light-gray); }
+  .hero-eyebrow { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--mid-gray); margin-bottom:28px; display:flex; align-items:center; gap:12px; }
+  .hero-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--mid-gray); flex-shrink:0; }
+  .hero-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(52px,6vw,88px); font-weight:400; line-height:1.0; color:var(--black); margin-bottom:32px; }
+  .hero-title em { font-style:italic; color:var(--accent); }
+  .hero-subtitle { font-size:15px; line-height:1.85; color:var(--text-gray); max-width:420px; margin-bottom:52px; font-weight:300; }
+  .hero-ctas { display:flex; gap:16px; align-items:center; margin-bottom:60px; }
+  .btn-primary { background:var(--black); color:var(--white); padding:15px 40px; font-size:11px; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; display:inline-block; transition:opacity 0.2s; }
+  .btn-primary:hover { opacity:0.75; }
+  .btn-ghost { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mid-gray); text-decoration:none; border-bottom:1px solid var(--light-gray); padding-bottom:2px; }
+  .hero-press { display:flex; align-items:center; gap:20px; padding-top:52px; border-top:1px solid var(--light-gray); }
+  .press-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid-gray); white-space:nowrap; }
+  .press-quotes { display:flex; flex-direction:column; gap:6px; }
+  .press-quote { font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:15px; color:var(--black); }
+  .press-source { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); }
+
+  /* HERO RIGHT */
+  .hero-right { position:relative; background:var(--off-white); overflow:hidden; }
+  .hero-img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
+  .hero-tag { position:absolute; bottom:40px; right:40px; background:var(--white); padding:20px 28px; border-left:3px solid var(--accent); max-width:260px; }
+  .hero-tag-text { font-family:'Playfair Display',Georgia,serif; font-size:13px; font-style:italic; color:var(--black); line-height:1.5; margin-bottom:6px; }
+  .hero-tag-sub { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mid-gray); }
+
+  /* CREDENTIALS TICKER */
+  .ticker { border-top:1px solid var(--light-gray); border-bottom:1px solid var(--light-gray); padding:20px 0; overflow:hidden; background:var(--white); }
+  .ticker-inner { display:flex; gap:0; animation:ticker 28s linear infinite; white-space:nowrap; }
+  .ticker-item { display:inline-flex; align-items:center; gap:12px; padding:0 48px; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-gray); flex-shrink:0; }
+  .ticker-dot { width:4px; height:4px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+  @keyframes ticker { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+
+  /* IDENTITY SECTION */
+  .identity { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--light-gray); }
+  .identity-left { padding:100px 70px; border-right:1px solid var(--light-gray); }
+  .identity-right { padding:100px 70px; display:flex; flex-direction:column; justify-content:space-between; }
+  .section-eyebrow { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--mid-gray); margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+  .section-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--mid-gray); flex-shrink:0; }
+  .section-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(32px,3.5vw,50px); font-weight:400; line-height:1.12; color:var(--black); margin-bottom:28px; }
+  .section-title em { font-style:italic; }
+  .section-body { font-size:15px; line-height:1.9; color:var(--text-gray); font-weight:300; margin-bottom:36px; }
+  .text-link { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(196,98,45,0.3); padding-bottom:2px; }
+  .text-link:hover { border-bottom-color:var(--accent); }
+
+  /* Identity right — role cards */
+  .role-cards { display:flex; flex-direction:column; gap:1px; background:var(--light-gray); }
+  .role-card { background:var(--white); padding:36px 40px; display:flex; align-items:flex-start; gap:24px; transition:background 0.2s; }
+  .role-card:hover { background:var(--off-white); }
+  .role-num { font-family:'Playfair Display',Georgia,serif; font-size:13px; color:var(--accent); font-weight:400; flex-shrink:0; margin-top:4px; }
+  .role-title { font-family:'Playfair Display',Georgia,serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:8px; }
+  .role-desc { font-size:13px; line-height:1.75; color:var(--text-gray); font-weight:300; }
+
+  /* HIGHLIGHTS — performances */
+  .highlights { background:var(--black); padding:100px 70px; }
+  .highlights-inner { max-width:1180px; margin:0 auto; }
+  .highlights-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:64px; }
+  .highlights-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(32px,3.5vw,50px); font-weight:400; color:var(--white); line-height:1.12; }
+  .highlights-title em { font-style:italic; color:var(--accent); }
+  .highlights-link { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:2px; }
+  .perf-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,0.1); }
+  .perf-card { background:var(--black); padding:40px 32px; border:none; }
+  .perf-card:hover { background:#111; }
+  .perf-category { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:16px; display:block; }
+  .perf-name { font-family:'Playfair Display',Georgia,serif; font-size:19px; font-weight:400; color:var(--white); line-height:1.3; margin-bottom:10px; }
+  .perf-detail { font-size:12px; color:rgba(255,255,255,0.4); line-height:1.6; font-weight:300; }
+
+  /* TEACHING CTA */
+  .teaching-cta { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--light-gray); border-bottom:1px solid var(--light-gray); }
+  .tcta-left { padding:100px 70px; border-right:1px solid var(--light-gray); display:flex; flex-direction:column; justify-content:center; }
+  .tcta-right { background:var(--off-white); padding:100px 70px; display:flex; flex-direction:column; justify-content:center; }
+  .tcta-tag { display:inline-flex; align-items:center; gap:8px; background:var(--accent-light); border:1px solid rgba(196,98,45,0.2); color:var(--accent); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; padding:7px 16px; margin-bottom:28px; width:fit-content; }
+  .tcta-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(32px,3.5vw,50px); font-weight:400; line-height:1.12; color:var(--black); margin-bottom:24px; }
+  .tcta-title em { font-style:italic; }
+  .tcta-body { font-size:15px; line-height:1.9; color:var(--text-gray); font-weight:300; margin-bottom:40px; max-width:420px; }
+  .tcta-stats { display:flex; gap:0; margin-bottom:48px; }
+  .tcta-stat { flex:1; padding-right:28px; border-right:1px solid var(--light-gray); margin-right:28px; }
+  .tcta-stat:last-child { border-right:none; margin-right:0; padding-right:0; }
+  .tcta-stat-num { font-family:'Playfair Display',Georgia,serif; font-size:34px; font-weight:400; color:var(--black); line-height:1; display:block; }
+  .tcta-stat-label { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid-gray); margin-top:5px; display:block; }
+  .reasons { list-style:none; display:flex; flex-direction:column; gap:0; }
+  .reason { display:flex; align-items:flex-start; gap:20px; padding:20px 0; border-bottom:1px solid var(--light-gray); }
+  .reason:first-child { border-top:1px solid var(--light-gray); }
+  .reason-num { font-family:'Playfair Display',Georgia,serif; font-size:13px; color:var(--accent); flex-shrink:0; margin-top:2px; }
+  .reason-text { font-size:14px; color:var(--text-gray); line-height:1.75; font-weight:300; }
+  .reason-text strong { color:var(--black); font-weight:400; }
+
+  /* RECENT POSTS */
+  .recent-posts { padding:100px 70px; max-width:1180px; margin:0 auto; }
+  .posts-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:52px; }
+  .posts-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--light-gray); border:1px solid var(--light-gray); }
+  .post-card { background:var(--white); padding:40px 36px; text-decoration:none; display:block; transition:background 0.2s; }
+  .post-card:hover { background:var(--off-white); }
+  .post-card-date { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--mid-gray); display:block; margin-bottom:14px; }
+  .post-card-title { font-family:'Playfair Display',Georgia,serif; font-size:19px; font-weight:400; color:var(--black); line-height:1.35; margin-bottom:14px; }
+  .post-card-link { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); }
+
+  /* FOOTER */
+  footer { background:var(--black); padding:60px 70px 40px; }
+  .footer-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:60px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:40px; }
+  .footer-logo-wrap { }
+  .footer-logo { font-family:'Playfair Display',Georgia,serif; font-size:20px; font-weight:400; color:var(--white); text-decoration:none; display:block; margin-bottom:12px; }
+  .footer-tagline { font-size:12px; color:rgba(255,255,255,0.35); letter-spacing:0.05em; }
+  .footer-col-title { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:20px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .footer-links a { font-size:13px; color:rgba(255,255,255,0.55); text-decoration:none; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--white); }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; }
+  .footer-copy { font-size:11px; color:rgba(255,255,255,0.2); letter-spacing:0.05em; }
+  .footer-social { display:flex; gap:24px; }
+  .footer-social a { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.3); text-decoration:none; transition:color 0.2s; }
+  .footer-social a:hover { color:var(--white); }
+
+  /* RESPONSIVE */
+  @media(max-width:1024px) {
+    .hero { grid-template-columns:1fr; min-height:auto; }
+    .hero-left { padding:100px 40px 60px; border-right:none; border-bottom:1px solid var(--light-gray); }
+    .hero-right { min-height:60vw; }
+    .identity { grid-template-columns:1fr; }
+    .identity-left { padding:60px 40px; border-right:none; border-bottom:1px solid var(--light-gray); }
+    .identity-right { padding:60px 40px; }
+    .teaching-cta { grid-template-columns:1fr; }
+    .tcta-left { padding:60px 40px; border-right:none; border-bottom:1px solid var(--light-gray); }
+    .tcta-right { padding:60px 40px; }
+    .perf-grid { grid-template-columns:1fr 1fr; }
+    .posts-grid { grid-template-columns:1fr; }
+    .footer-top { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:768px) {
+    nav { padding:20px 24px; }
+    .nav-links { display:none; }
+    .hero-left { padding:90px 24px 48px; }
+    .identity-left, .identity-right { padding:60px 24px; }
+    .highlights { padding:60px 24px; }
+    .highlights-header { flex-direction:column; align-items:flex-start; gap:16px; }
+    .perf-grid { grid-template-columns:1fr; }
+    .tcta-left, .tcta-right { padding:60px 24px; }
+    .recent-posts { padding:60px 24px; }
+    .posts-header { flex-direction:column; align-items:flex-start; gap:16px; }
+    footer { padding:48px 24px 32px; }
+    .footer-top { grid-template-columns:1fr; gap:36px; }
+    .footer-bottom { flex-direction:column; gap:16px; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Chihiro Shibayama</a>
+  <ul class="nav-links">
+    <li><a href="bio.html">Biography</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="media.html">Media</a></li>
+  </ul>
+  <a href="teaching.html" class="nav-contact">Private Lessons</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Percussionist · Educator · Longmont, CO</p>
+    <h1 class="hero-title">Chihiro<br>Shiba<em>yama.</em></h1>
+    <p class="hero-subtitle">Juilliard-trained percussionist. Broadway veteran. Now offering world-class private percussion lessons in Longmont, Colorado — and online worldwide.</p>
+    <div class="hero-ctas">
+      <a href="teaching.html" class="btn-primary">Study with me</a>
+      <a href="bio.html" class="btn-ghost">Read biography →</a>
+    </div>
+    <div class="hero-press">
+      <span class="press-label">Press</span>
+      <div class="press-quotes">
+        <span class="press-quote">"…impressive soloist…"</span>
+        <span class="press-source">— The New York Times</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.squarespace-cdn.com/content/v1/54fe992ce4b081b61d82862f/1600008341762-YP4NT2CVOQ8ER8ICT348/Chihiro+Shibayama+-+headshot.jpg"
+         alt="Chihiro Shibayama" class="hero-img"
+         onerror="this.style.background='#f0ede8'; this.style.display='block';">
+    <div class="hero-tag">
+      <p class="hero-tag-text">"The goal isn't to play the notes. It's to understand why they matter."</p>
+      <p class="hero-tag-sub">On teaching</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="ticker-dot"></span>The Juilliard School B.M. & M.M.</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Miss Saigon on Broadway</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Metropolitan Opera</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Carnegie Hall</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Good Morning America</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Radio City Christmas Spectacular</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Kansas City Symphony</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Santa Fe Opera</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>New York Times: "impressive soloist"</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Juilliard Summer Percussion Faculty</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="ticker-dot"></span>The Juilliard School B.M. & M.M.</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Miss Saigon on Broadway</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Metropolitan Opera</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Carnegie Hall</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Good Morning America</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Radio City Christmas Spectacular</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Kansas City Symphony</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Santa Fe Opera</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>New York Times: "impressive soloist"</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Juilliard Summer Percussion Faculty</span>
+  </div>
+</div>
+
+<!-- IDENTITY -->
+<section class="identity">
+  <div class="identity-left">
+    <p class="section-eyebrow">About</p>
+    <h2 class="section-title">A life devoted<br>to <em>percussion.</em></h2>
+    <p class="section-body">Native of Yokohama, Japan, Chihiro Shibayama is a versatile freelance percussionist and educator now based in Longmont, Colorado. Her career spans Broadway, opera, orchestra, new music, and television — from the pit of Miss Saigon to the stage of Carnegie Hall.</p>
+    <p class="section-body">She holds Bachelor's and Master's degrees from The Juilliard School and has spent over two decades performing and teaching at the highest levels of the profession.</p>
+    <a href="bio.html" class="text-link">Full biography →</a>
+  </div>
+  <div class="identity-right">
+    <div class="role-cards">
+      <div class="role-card">
+        <span class="role-num">01</span>
+        <div>
+          <p class="role-title">Performer</p>
+          <p class="role-desc">Broadway, Metropolitan Opera, Carnegie Hall, symphonies, new music ensembles, and television across the US and internationally.</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <span class="role-num">02</span>
+        <div>
+          <p class="role-title">Educator</p>
+          <p class="role-desc">20+ years of private teaching, faculty at Diller-Quaile and Third Street Music School, and Juilliard Summer Percussion Seminar.</p>
+        </div>
+      </div>
+      <div class="role-card">
+        <span class="role-num">03</span>
+        <div>
+          <p class="role-title">Arts advocate</p>
+          <p class="role-desc">Co-founder of MuSE (Multicultural Sonic Evolution), a non-profit creating multicultural environments through music and the arts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCE HIGHLIGHTS -->
+<section class="highlights">
+  <div class="highlights-inner">
+    <div class="highlights-header">
+      <h2 class="highlights-title">Selected<br><em>performances.</em></h2>
+      <a href="media.html" class="highlights-link">View all media →</a>
+    </div>
+    <div class="perf-grid">
+      <div class="perf-card">
+        <span class="perf-category">Broadway</span>
+        <p class="perf-name">Miss Saigon</p>
+        <p class="perf-detail">Broadway Run<br>March 2017 – January 2018</p>
+      </div>
+      <div class="perf-card">
+        <span class="perf-category">Opera</span>
+        <p class="perf-name">Metropolitan Opera</p>
+        <p class="perf-detail">On-stage drummer<br>La bohème</p>
+      </div>
+      <div class="perf-card">
+        <span class="perf-category">Concert Hall</span>
+        <p class="perf-name">Carnegie Hall</p>
+        <p class="perf-detail">Weill Recital Hall &<br>Timpanist performances</p>
+      </div>
+      <div class="perf-card">
+        <span class="perf-category">Television</span>
+        <p class="perf-name">Good Morning America</p>
+        <p class="perf-detail">Performed "Glory"<br>with John Legend & Common</p>
+      </div>
+      <div class="perf-card">
+        <span class="perf-category">Opera</span>
+        <p class="perf-name">Santa Fe Opera</p>
+        <p class="perf-detail">On-stage percussion soloist<br>Tan Dun's "TEA"</p>
+      </div>
+      <div class="perf-card">
+        <span class="perf-category">Broadway</span>
+        <p class="perf-name">The Cherry Orchard</p>
+        <p class="perf-detail">Broadway debut<br>Roundabout Theatre Co.</p>
+      </div>
+      <div class="perf-card">
+        <span class="perf-category">Symphony</span>
+        <p class="perf-name">Kansas City Symphony</p>
+        <p class="perf-detail">Orchestral percussionist<br>& ensemble work</p>
+      </div>
+      <div class="perf-card">
+        <span class="perf-category">New Music</span>
+        <p class="perf-name">Alarm Will Sound</p>
+        <p class="perf-detail">Innovative 20-piece<br>new music ensemble</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING CTA -->
+<section class="teaching-cta">
+  <div class="tcta-left">
+    <div class="tcta-tag">Now accepting students</div>
+    <h2 class="tcta-title">World-class lessons,<br>right here in<br><em>Longmont.</em></h2>
+    <p class="tcta-body">Juilliard-trained percussion instruction for students of all ages — from first-time beginners to pre-college aspirants. In-person in Longmont, CO or online worldwide.</p>
+    <div class="tcta-stats">
+      <div class="tcta-stat">
+        <span class="tcta-stat-num">25+</span>
+        <span class="tcta-stat-label">Years performing</span>
+      </div>
+      <div class="tcta-stat">
+        <span class="tcta-stat-num">20+</span>
+        <span class="tcta-stat-label">Years teaching</span>
+      </div>
+      <div class="tcta-stat">
+        <span class="tcta-stat-num">$30</span>
+        <span class="tcta-stat-label">Trial lesson</span>
+      </div>
+    </div>
+    <a href="teaching.html" class="btn-primary">View lesson options</a>
+  </div>
+  <div class="tcta-right">
+    <p class="section-eyebrow">Why study with me</p>
+    <ul class="reasons">
+      <li class="reason">
+        <span class="reason-num">01</span>
+        <p class="reason-text"><strong>Juilliard pedigree</strong> — B.M. & M.M. from the world's most prestigious conservatory, now teaching privately in Colorado.</p>
+      </li>
+      <li class="reason">
+        <span class="reason-num">02</span>
+        <p class="reason-text"><strong>Real stage experience</strong> — 25+ years on Broadway, at the Met, and Carnegie Hall. Teaching from lived professional truth.</p>
+      </li>
+      <li class="reason">
+        <span class="reason-num">03</span>
+        <p class="reason-text"><strong>Student results</strong> — Students have earned spots at Juilliard Pre-College, won auditions, and performed recitals.</p>
+      </li>
+      <li class="reason">
+        <span class="reason-num">04</span>
+        <p class="reason-text"><strong>A rare find locally</strong> — This caliber of percussion instruction is extraordinarily rare outside New York. It's here now.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- RECENT BLOG POSTS -->
+<section class="recent-posts">
+  <div class="posts-header">
+    <div>
+      <p class="section-eyebrow">From the studio</p>
+      <h2 class="section-title">Recent <em>writing.</em></h2>
+    </div>
+    <a href="blog.html" class="text-link">All posts →</a>
+  </div>
+  <div class="posts-grid">
+    <a href="blog/3-tips-on-how-to-practice-effectively.html" class="post-card">
+      <span class="post-card-date">January 27, 2021</span>
+      <h3 class="post-card-title">3 Tips on How to Practice Effectively</h3>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/how-to-prepare-for-your-first-rehearsal---step-by-step-guide.html" class="post-card">
+      <span class="post-card-date">February 23, 2021</span>
+      <h3 class="post-card-title">How to Prepare for your First Rehearsal — Step by Step Guide</h3>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/the-art-of-cold-calling.html" class="post-card">
+      <span class="post-card-date">February 11, 2021</span>
+      <h3 class="post-card-title">The Art of Cold-Calling</h3>
+      <span class="post-card-link">Read post →</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-wrap">
+      <a href="index.html" class="footer-logo">Chihiro Shibayama</a>
+      <p class="footer-tagline">Percussionist · Educator · Longmont, CO</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Pages</p>
+      <ul class="footer-links">
+        <li><a href="bio.html">Biography</a></li>
+        <li><a href="teaching.html">Teaching & Lessons</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="media.html">Media</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Connect</p>
+      <ul class="footer-links">
+        <li><a href="mailto:Chihiro@chihiroshibayama.com">Chihiro@chihiroshibayama.com</a></li>
+        <li><a href="https://www.youtube.com/channel/UCdYfi421onANf2QRsDuBdHQ" target="_blank">YouTube</a></li>
+        <li><a href="https://www.instagram.com/chihiroplayspercussion/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/ChihiroPercussionist" target="_blank">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Chihiro Shibayama. All rights reserved.</p>
+    <div class="footer-social">
+      <a href="https://www.youtube.com/channel/UCdYfi421onANf2QRsDuBdHQ" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/chihiroplayspercussion/" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/ChihiroPercussionist" target="_blank">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
