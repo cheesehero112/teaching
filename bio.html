@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biography — Chihiro Shibayama</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --off-white: #f8f7f5;
+    --light-gray: #e8e6e2;
+    --mid-gray: #888;
+    --text-gray: #444;
+    --accent: #C4622D;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Lato',sans-serif; color:var(--black); background:var(--white); font-weight:300; line-height:1.7; }
+
+  /* NAV */
+  nav { display:flex; justify-content:space-between; align-items:center; padding:28px 60px; border-bottom:1px solid var(--light-gray); position:sticky; top:0; background:rgba(255,255,255,0.97); z-index:100; backdrop-filter:blur(4px); }
+  .nav-logo { font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:400; color:var(--black); text-decoration:none; letter-spacing:0.04em; }
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--black); text-decoration:none; font-weight:400; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--mid-gray); }
+  .nav-links a.active { border-bottom:1px solid var(--black); }
+  .nav-contact { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; color:var(--black); border:1px solid var(--black); padding:8px 20px; transition:all 0.2s; }
+  .nav-contact:hover { background:var(--black); color:var(--white); }
+
+  /* HERO */
+  .bio-hero { display:grid; grid-template-columns:1fr 1fr; min-height:90vh; padding-top:85px; }
+  .bio-hero-left { position:relative; overflow:hidden; background:var(--off-white); }
+  .bio-hero-img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
+  .bio-hero-right { padding:80px 70px; display:flex; flex-direction:column; justify-content:center; border-left:1px solid var(--light-gray); }
+  .eyebrow { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--mid-gray); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--mid-gray); flex-shrink:0; }
+  .bio-hero-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(44px,5vw,72px); font-weight:400; line-height:1.08; color:var(--black); margin-bottom:32px; }
+  .bio-hero-title em { font-style:italic; color:var(--accent); }
+  .bio-hero-intro { font-size:16px; line-height:1.9; color:var(--text-gray); font-weight:300; margin-bottom:48px; }
+  .nyt-block { border-left:3px solid var(--accent); padding:20px 28px; background:var(--off-white); margin-bottom:48px; }
+  .nyt-quote { font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:18px; color:var(--black); line-height:1.5; margin-bottom:8px; }
+  .nyt-source { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid-gray); }
+  .credentials { display:flex; flex-direction:column; gap:10px; }
+  .cred { display:flex; align-items:center; gap:12px; font-size:13px; color:var(--text-gray); font-weight:300; }
+  .cred-dot { width:5px; height:5px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+
+  /* MAIN BIO */
+  .bio-main { max-width:1180px; margin:0 auto; padding:100px 70px; display:grid; grid-template-columns:2fr 1fr; gap:80px; align-items:start; }
+  .bio-text p { font-size:16px; line-height:1.95; color:var(--text-gray); font-weight:300; margin-bottom:28px; }
+  .bio-text p:first-child { font-family:'Playfair Display',Georgia,serif; font-size:20px; font-style:italic; color:var(--black); line-height:1.7; font-weight:400; }
+  .bio-text h2 { font-family:'Playfair Display',Georgia,serif; font-size:28px; font-weight:400; color:var(--black); margin:52px 0 20px; padding-top:52px; border-top:1px solid var(--light-gray); }
+  .bio-text h2 em { font-style:italic; }
+  .bio-text a { color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(196,98,45,0.3); }
+  .bio-text a:hover { border-bottom-color:var(--accent); }
+
+  /* SIDEBAR */
+  .bio-sidebar { position:sticky; top:110px; }
+  .sidebar-card { background:var(--off-white); padding:36px; margin-bottom:2px; }
+  .sidebar-card:first-child { border-top:3px solid var(--accent); }
+  .sidebar-title { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid-gray); margin-bottom:20px; }
+  .sidebar-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .sidebar-list li { font-size:13px; color:var(--text-gray); font-weight:300; line-height:1.5; display:flex; align-items:baseline; gap:10px; }
+  .sidebar-list li::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:6px; }
+  .sidebar-award { padding:16px 0; border-bottom:1px solid var(--light-gray); }
+  .sidebar-award:last-child { border-bottom:none; }
+  .award-name { font-size:13px; color:var(--black); font-weight:400; margin-bottom:3px; }
+  .award-detail { font-size:12px; color:var(--mid-gray); font-weight:300; }
+
+  /* DARK QUOTE BREAK */
+  .quote-break { background:var(--black); padding:80px 70px; text-align:center; }
+  .quote-break-text { font-family:'Playfair Display',Georgia,serif; font-size:clamp(22px,3vw,38px); font-style:italic; font-weight:400; color:var(--white); max-width:800px; margin:0 auto 20px; line-height:1.45; }
+  .quote-break-source { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+
+  /* ENDORSEMENTS */
+  .endorsements { border-top:1px solid var(--light-gray); border-bottom:1px solid var(--light-gray); padding:48px 70px; display:flex; align-items:center; gap:60px; background:var(--off-white); }
+  .endorse-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid-gray); white-space:nowrap; flex-shrink:0; }
+  .endorse-items { display:flex; gap:40px; align-items:center; flex-wrap:wrap; }
+  .endorse-item { font-size:13px; color:var(--text-gray); font-weight:300; letter-spacing:0.05em; }
+
+  /* FOOTER */
+  footer { background:var(--black); padding:60px 70px 40px; }
+  .footer-top { display:grid; grid-template-columns:1fr 1fr 1fr; gap:60px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:40px; }
+  .footer-logo { font-family:'Playfair Display',Georgia,serif; font-size:20px; font-weight:400; color:var(--white); text-decoration:none; display:block; margin-bottom:12px; }
+  .footer-tagline { font-size:12px; color:rgba(255,255,255,0.35); letter-spacing:0.05em; }
+  .footer-col-title { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:20px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .footer-links a { font-size:13px; color:rgba(255,255,255,0.55); text-decoration:none; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--white); }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; }
+  .footer-copy { font-size:11px; color:rgba(255,255,255,0.2); }
+  .footer-social { display:flex; gap:24px; }
+  .footer-social a { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.3); text-decoration:none; transition:color 0.2s; }
+  .footer-social a:hover { color:var(--white); }
+
+  @media(max-width:1024px) {
+    .bio-hero { grid-template-columns:1fr; min-height:auto; }
+    .bio-hero-left { min-height:60vw; }
+    .bio-hero-right { padding:60px 40px; border-left:none; border-top:1px solid var(--light-gray); }
+    .bio-main { grid-template-columns:1fr; padding:60px 40px; gap:48px; }
+    .bio-sidebar { position:static; }
+    .footer-top { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:768px) {
+    nav { padding:20px 24px; }
+    .nav-links { display:none; }
+    .bio-hero-right { padding:48px 24px; }
+    .bio-main { padding:60px 24px; }
+    .quote-break { padding:60px 24px; }
+    .endorsements { padding:40px 24px; flex-direction:column; align-items:flex-start; gap:20px; }
+    footer { padding:48px 24px 32px; }
+    .footer-top { grid-template-columns:1fr; gap:36px; }
+    .footer-bottom { flex-direction:column; gap:16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Chihiro Shibayama</a>
+  <ul class="nav-links">
+    <li><a href="bio.html" class="active">Biography</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="media.html">Media</a></li>
+  </ul>
+  <a href="teaching.html" class="nav-contact">Private Lessons</a>
+</nav>
+
+<!-- HERO -->
+<section class="bio-hero">
+  <div class="bio-hero-left">
+    <img src="https://images.squarespace-cdn.com/content/v1/54fe992ce4b081b61d82862f/1600008341762-YP4NT2CVOQ8ER8ICT348/Chihiro+Shibayama+-+headshot.jpg"
+         alt="Chihiro Shibayama" class="bio-hero-img">
+  </div>
+  <div class="bio-hero-right">
+    <p class="eyebrow">Biography</p>
+    <h1 class="bio-hero-title">Chihiro<br><em>Shibayama.</em></h1>
+    <p class="bio-hero-intro">Native of Yokohama, Japan. Juilliard-trained percussionist. Broadway veteran. New music advocate. Educator. Now based in Longmont, Colorado.</p>
+    <div class="nyt-block">
+      <p class="nyt-quote">"…impressive soloist…"</p>
+      <p class="nyt-source">— The New York Times</p>
+    </div>
+    <div class="credentials">
+      <div class="cred"><span class="cred-dot"></span>B.M. & M.M., The Juilliard School</div>
+      <div class="cred"><span class="cred-dot"></span>Interlochen Arts Academy, Performance Award 2003</div>
+      <div class="cred"><span class="cred-dot"></span>Zildjian Scholarship 2004–2007</div>
+      <div class="cred"><span class="cred-dot"></span>Irene Diamond Graduate Fellowship, Juilliard 2007–09</div>
+      <div class="cred"><span class="cred-dot"></span>Pearl Adams Concert Percussion & Dragonfly Percussion endorser</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN BIO + SIDEBAR -->
+<div class="bio-main">
+  <div class="bio-text">
+    <p>Chihiro Shibayama is a versatile freelance percussionist and educator whose career spans Broadway, opera, symphony, new music, and television — shaped by over two decades of performing and teaching at the highest levels of the profession.</p>
+
+    <p>Ms. Shibayama was a percussionist for the successful Broadway run of <em>Miss Saigon</em> (March 2017 – January 2018), and made her Broadway debut as one of three on-stage musicians for <em>The Cherry Orchard</em> starring Diane Lane, produced by The Roundabout Theatre Company at the American Airlines Theatre. She has performed for the Radio City Christmas Spectacular, NBC's <em>Good Morning America</em> with John Legend and Common, the Daytime Emmy Awards, and Broadway productions including <em>The Addams Family</em>, <em>Anything Goes</em>, <em>Cinderella</em>, and <em>West Side Story</em>.</p>
+
+    <h2>Opera & <em>Orchestra</em></h2>
+
+    <p>Among her most notable performances, Ms. Shibayama was one of three on-stage percussion soloists in the U.S. premiere of Tan Dun's opera <em>TEA – A Mirror of Soul</em> at The Santa Fe Opera (2007), the East Coast premiere at the Opera Company of Philadelphia (2009), and the Canadian premiere at the Vancouver Opera (2013). She has performed with The Metropolitan Opera, Kansas City Symphony, San Diego Symphony, New Jersey Symphony, Huntsville Symphony Orchestra, the Orchestra Now (TON), and many others. As a soloist, she has performed concerti with the Great Lake Symphony Orchestra and Manitou Music Festival Orchestra.</p>
+
+    <h2>New Music & <em>Chamber</em></h2>
+
+    <p>As a passionate new music advocate, Ms. Shibayama has performed and recorded with Alarm Will Sound, American Contemporary Music Ensemble (ACME), S.E.M. Ensemble, Second Instrumental Unit, New Juilliard Ensemble, and AXIOM. She toured China in 2015 to perform at the Beijing Modern Music Festival, and has appeared on the Amazon Prime series <em>Mozart in the Jungle</em>. She is a co-founder and program coordinator of <a href="https://www.musefriends.org" target="_blank">Multicultural Sonic Evolution (MuSE)</a>, a non-profit creating multicultural environments through music, dance, theater, and film.</p>
+
+    <h2>Teaching & <em>Education</em></h2>
+
+    <p>Ms. Shibayama has dedicated more than 20 years to percussion education. She served as percussion faculty at Diller-Quaile School of Music for seven years and Third Street Music Settlement for two years. From 2007 to 2010 she was faculty at The Juilliard Summer Percussion Seminar, where she coached ensembles, presented masterclasses, and worked with exceptional young musicians from around the world. Her masterclass "My Way to Broadway" has been presented at the University of Missouri, the University of Alabama in Huntsville, and the Juilliard Summer Percussion Masterclass Series.</p>
+
+    <p>She regularly collaborates with teaching artists from the New York Philharmonic's Very Young Composers program, introducing young students to the percussion family. She is currently accepting private students in Longmont, Colorado and online worldwide.</p>
+
+    <h2>Librarian & <em>Production</em></h2>
+
+    <p>Beyond performing and teaching, Ms. Shibayama has built an extensive career as a freelance ensemble librarian. She has served as librarian for Alarm Will Sound, Orchestra of St. Luke's, New York Pops, The Juilliard School, and New York Youth Symphony. Since 2015 she has been a percussion specialist and production assistant for Carnegie Hall / Weill Music Institute's National Youth Orchestra of the U.S.A., supporting the orchestra on tours across Asia, Europe, and South America.</p>
+
+    <h2>Background & <em>Training</em></h2>
+
+    <p>A native of Yokohama City, Japan, Ms. Shibayama graduated from the Interlochen Arts Academy with a performance award in 2003. She earned her Bachelor of Music and Master of Music degrees from The Juilliard School in 2007 and 2009. Her mentors include Daniel Druckman, Greg Zuber, Markus Rhoten, Joe Pereira, Roland Kohloff, Keith Aleo, Mariko Okada, and John Alfieri. She proudly endorses Pearl Adams Concert Percussion and Dragonfly Percussion.</p>
+
+    <p>日本語のプロフィールは<a href="#" target="_blank">こちら</a>をクリック</p>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="bio-sidebar">
+    <div class="sidebar-card">
+      <p class="sidebar-title">Broadway</p>
+      <ul class="sidebar-list">
+        <li>Miss Saigon (2017–18)</li>
+        <li>The Cherry Orchard</li>
+        <li>Cinderella</li>
+        <li>West Side Story</li>
+        <li>The Addams Family</li>
+        <li>Anything Goes</li>
+        <li>Radio City Christmas Spectacular</li>
+      </ul>
+    </div>
+    <div class="sidebar-card">
+      <p class="sidebar-title">Orchestras & Opera</p>
+      <ul class="sidebar-list">
+        <li>Metropolitan Opera</li>
+        <li>Kansas City Symphony</li>
+        <li>San Diego Symphony</li>
+        <li>Santa Fe Opera</li>
+        <li>New Jersey Symphony</li>
+        <li>Vancouver Opera</li>
+        <li>Malaysian Philharmonic</li>
+      </ul>
+    </div>
+    <div class="sidebar-card">
+      <p class="sidebar-title">Awards</p>
+      <div class="sidebar-award">
+        <p class="award-name">Zildjian Scholarship</p>
+        <p class="award-detail">2004–2007</p>
+      </div>
+      <div class="sidebar-award">
+        <p class="award-name">Irene Diamond Graduate Fellowship</p>
+        <p class="award-detail">The Juilliard School, 2007–09</p>
+      </div>
+      <div class="sidebar-award">
+        <p class="award-name">Weekes Memorial Scholarship</p>
+        <p class="award-detail">Glassmen Drum & Bugle Corps, 2006</p>
+      </div>
+      <div class="sidebar-award">
+        <p class="award-name">PAS High School Keyboard Competition</p>
+        <p class="award-detail">Third prize, 2003</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- QUOTE BREAK -->
+<div class="quote-break">
+  <p class="quote-break-text">"She has performed and recorded with ensembles at the highest levels of the profession — from Broadway to Carnegie Hall to international stages."</p>
+  <p class="quote-break-source">— Career overview</p>
+</div>
+
+<!-- ENDORSEMENTS -->
+<div class="endorsements">
+  <p class="endorse-label">Proudly endorses</p>
+  <div class="endorse-items">
+    <span class="endorse-item">Pearl Adams Concert Percussion</span>
+    <span class="endorse-item">Dragonfly Percussion</span>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">Chihiro Shibayama</a>
+      <p class="footer-tagline">Percussionist · Educator · Longmont, CO</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Pages</p>
+      <ul class="footer-links">
+        <li><a href="bio.html">Biography</a></li>
+        <li><a href="teaching.html">Teaching & Lessons</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="media.html">Media</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Connect</p>
+      <ul class="footer-links">
+        <li><a href="mailto:Chihiro@chihiroshibayama.com">Chihiro@chihiroshibayama.com</a></li>
+        <li><a href="https://www.youtube.com/channel/UCdYfi421onANf2QRsDuBdHQ" target="_blank">YouTube</a></li>
+        <li><a href="https://www.instagram.com/chihiroplayspercussion/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/ChihiroPercussionist" target="_blank">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Chihiro Shibayama. All rights reserved.</p>
+    <div class="footer-social">
+      <a href="https://www.youtube.com/channel/UCdYfi421onANf2QRsDuBdHQ" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/chihiroplayspercussion/" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/ChihiroPercussionist" target="_blank">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
