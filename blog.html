@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Chihiro Shibayama</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Lato',sans-serif; color:#0a0a0a; background:#fff; font-weight:300; line-height:1.7; }
+  nav { display:flex; justify-content:space-between; align-items:center; padding:28px 60px; border-bottom:1px solid #e8e6e2; position:sticky; top:0; background:rgba(255,255,255,0.97); z-index:100; }
+  .nav-logo { font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:400; color:#0a0a0a; text-decoration:none; letter-spacing:0.04em; }
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#0a0a0a; text-decoration:none; font-weight:400; }
+  .nav-links a:hover { color:#888; }
+  .nav-links a.active { border-bottom:1px solid #0a0a0a; }
+  .nav-contact { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; color:#0a0a0a; border:1px solid #0a0a0a; padding:8px 20px; transition:all 0.2s; }
+  .nav-contact:hover { background:#0a0a0a; color:#fff; }
+  .blog-header { max-width:1100px; margin:0 auto; padding:80px 60px 64px; border-bottom:1px solid #e8e6e2; }
+  .eyebrow { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#888; margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+  .eyebrow::before { content:''; display:block; width:32px; height:1px; background:#888; }
+  .blog-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(40px,5vw,64px); font-weight:400; line-height:1.1; color:#0a0a0a; }
+  .blog-title em { font-style:italic; }
+  .posts-list { max-width:1100px; margin:0 auto; padding:0 60px 100px; }
+  .post-card { display:grid; grid-template-columns:160px 1fr auto; align-items:center; gap:40px; padding:36px 0; border-bottom:1px solid #e8e6e2; text-decoration:none; transition:opacity 0.2s; }
+  .post-card:hover { opacity:0.6; }
+  .post-card-date { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#888; }
+  .post-card-title { font-family:'Playfair Display',Georgia,serif; font-size:22px; font-weight:400; color:#0a0a0a; line-height:1.3; }
+  .post-card-link { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#C4622D; white-space:nowrap; }
+  footer { border-top:1px solid #e8e6e2; padding:32px 60px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Playfair Display',Georgia,serif; font-size:16px; color:#0a0a0a; text-decoration:none; }
+  .footer-links { display:flex; gap:24px; }
+  .footer-links a { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#888; text-decoration:none; }
+  @media(max-width:768px) {
+    nav { padding:20px 24px; }
+    .nav-links { display:none; }
+    .blog-header { padding:60px 24px 40px; }
+    .posts-list { padding:0 24px 60px; }
+    .post-card { grid-template-columns:1fr; gap:8px; padding:28px 0; }
+    .post-card-link { display:none; }
+    footer { padding:24px; flex-wrap:wrap; gap:16px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Chihiro Shibayama</a>
+  <ul class="nav-links">
+    <li><a href="bio.html">Biography</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="media.html">Media</a></li>
+  </ul>
+  <a href="teaching.html#contact" class="nav-contact">Contact</a>
+</nav>
+<div class="blog-header">
+  <p class="eyebrow">Percussion & music education</p>
+  <h1 class="blog-title">Notes from<br><em>the studio.</em></h1>
+</div>
+<div class="posts-list">
+
+    <a href="blog/test-of-time-challenge.html" class="post-card">
+      <span class="post-card-date">March 24, 2021</span>
+      <h2 class="post-card-title">Test of Time Challenge!</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/how-to-prepare-for-your-first-rehearsal---step-by-step-guide.html" class="post-card">
+      <span class="post-card-date">February 23, 2021</span>
+      <h2 class="post-card-title">How to Prepare for your First Rehearsal - Step by Step Guide -</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/key-change-challenge-2-miyazaki-film-ver.html" class="post-card">
+      <span class="post-card-date">February 16, 2021</span>
+      <h2 class="post-card-title">Key Change Challenge #2 (Miyazaki Film Ver.)</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/the-art-of-cold-calling.html" class="post-card">
+      <span class="post-card-date">February 11, 2021</span>
+      <h2 class="post-card-title">The Art of Cold-Calling</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/reading-challenge-2-watch-out-for-the-rests.html" class="post-card">
+      <span class="post-card-date">February 02, 2021</span>
+      <h2 class="post-card-title">Reading Challenge #2 (watch out for the rests!)</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/3-tips-on-how-to-practice-effectively.html" class="post-card">
+      <span class="post-card-date">January 27, 2021</span>
+      <h2 class="post-card-title">3 Tips on How to Practice Effectively</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/polyrhythm-maker---a-tool-to-let-you-figure-out-any-polyrhyt.html" class="post-card">
+      <span class="post-card-date">January 19, 2021</span>
+      <h2 class="post-card-title">Polyrhythm Maker - a tool to let you figure out any polyrhythms!</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/polyrhythm-reading-challenge.html" class="post-card">
+      <span class="post-card-date">January 12, 2021</span>
+      <h2 class="post-card-title">Polyrhythm Reading Challenge</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/30---day-10min-practice-challenge-for-the-new-year.html" class="post-card">
+      <span class="post-card-date">January 05, 2021</span>
+      <h2 class="post-card-title">30 - Day (10min) Practice Challenge for the New Year!</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/4---mallet-warm-up-thats-not-boring.html" class="post-card">
+      <span class="post-card-date">December 29, 2020</span>
+      <h2 class="post-card-title">4 - Mallet Warm Up That's Not Boring</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/you-dont-need-a-perfect-pitch-interval-cheat-sheet.html" class="post-card">
+      <span class="post-card-date">December 23, 2020</span>
+      <h2 class="post-card-title">You Don't Need a Perfect Pitch (Interval Cheat Sheet)</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/rhythm-challenge---can-you-read-these-funny-looking-rhythms.html" class="post-card">
+      <span class="post-card-date">December 15, 2020</span>
+      <h2 class="post-card-title">Rhythm Challenge - Can You Read these "funny" looking rhythms?</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/timpani-tuning-challenge-1-happy-birthday.html" class="post-card">
+      <span class="post-card-date">December 07, 2020</span>
+      <h2 class="post-card-title">Timpani Tuning Challenge #1 (happy birthday)</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/key-change-challenge-1-holiday-ver.html" class="post-card">
+      <span class="post-card-date">November 29, 2020</span>
+      <h2 class="post-card-title">Key Change Challenge #1 (holiday ver.)</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/free-guide-1-5-steps-to-play-on-broadway.html" class="post-card">
+      <span class="post-card-date">November 29, 2020</span>
+      <h2 class="post-card-title">Free Guide #1 "5 Steps to Play on Broadway"</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/positive-percussionist-newsletter-is-born.html" class="post-card">
+      <span class="post-card-date">November 26, 2020</span>
+      <h2 class="post-card-title">Positive Percussionist newsletter is born!</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/practicing-basics-1.html" class="post-card">
+      <span class="post-card-date">February 08, 2019</span>
+      <h2 class="post-card-title">Practicing Basics 1</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+    <a href="blog/miss-saigon-on-broadway---opening-march-1st-2017.html" class="post-card">
+      <span class="post-card-date">December 20, 2016</span>
+      <h2 class="post-card-title">Miss Saigon on Broadway - Opening March 1st, 2017!</h2>
+      <span class="post-card-link">Read post →</span>
+    </a>
+</div>
+<footer>
+  <a href="index.html" class="footer-logo">Chihiro Shibayama</a>
+  <div class="footer-links">
+    <a href="bio.html">Biography</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="media.html">Media</a>
+  </div>
+</footer>
+</body>
+</html>
