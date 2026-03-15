@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polyrhythm Maker - a tool to let you figure out any polyrhythms! — Chihiro Shibayama</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Lato',sans-serif; color:#0a0a0a; background:#fff; font-weight:300; line-height:1.7; }
+  nav { display:flex; justify-content:space-between; align-items:center; padding:28px 60px; border-bottom:1px solid #e8e6e2; position:sticky; top:0; background:rgba(255,255,255,0.97); z-index:100; }
+  .nav-logo { font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:400; color:#0a0a0a; text-decoration:none; letter-spacing:0.04em; }
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#0a0a0a; text-decoration:none; font-weight:400; }
+  .nav-links a:hover { color:#888; }
+  .nav-links a.active { border-bottom:1px solid #0a0a0a; }
+  .nav-contact { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; color:#0a0a0a; border:1px solid #0a0a0a; padding:8px 20px; transition:all 0.2s; }
+  .nav-contact:hover { background:#0a0a0a; color:#fff; }
+  .post-header { max-width:760px; margin:0 auto; padding:80px 40px 48px; }
+  .post-eyebrow { display:flex; align-items:center; gap:20px; margin-bottom:28px; }
+  .back-link { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#C4622D; text-decoration:none; }
+  .back-link:hover { opacity:0.7; }
+  .post-date { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#888; }
+  .post-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(32px,5vw,52px); font-weight:400; line-height:1.1; color:#0a0a0a; }
+  .post-body { max-width:760px; margin:0 auto; padding:8px 40px 100px; }
+  .post-body p { font-size:16px; line-height:1.9; color:#333; margin-bottom:24px; font-weight:300; }
+  .post-body h2 { font-family:'Playfair Display',Georgia,serif; font-size:28px; font-weight:400; color:#0a0a0a; margin:48px 0 16px; }
+  .post-body h3 { font-family:'Playfair Display',Georgia,serif; font-size:22px; font-weight:400; color:#0a0a0a; margin:36px 0 12px; }
+  .post-body ul, .post-body ol { margin:0 0 24px 28px; }
+  .post-body li { font-size:16px; line-height:1.85; color:#333; margin-bottom:8px; font-weight:300; }
+  .post-body a { color:#C4622D; text-decoration:none; border-bottom:1px solid rgba(196,98,45,0.3); }
+  .post-body a:hover { border-bottom-color:#C4622D; }
+  .post-body img { max-width:100%; height:auto; margin:40px 0; display:block; }
+  .post-body strong { font-weight:700; color:#0a0a0a; }
+  .post-body blockquote { border-left:3px solid #C4622D; padding-left:24px; margin:32px 0; font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:20px; color:#555; line-height:1.6; }
+  .post-divider { border:none; border-top:1px solid #e8e6e2; margin:60px 0; }
+  .post-footer { max-width:760px; margin:0 auto; padding:32px 40px 80px; display:flex; justify-content:space-between; align-items:center; }
+  .post-footer a { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:#C4622D; text-decoration:none; }
+  footer { border-top:1px solid #e8e6e2; padding:32px 60px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-family:'Playfair Display',Georgia,serif; font-size:16px; color:#0a0a0a; text-decoration:none; }
+  .footer-links { display:flex; gap:24px; }
+  .footer-links a { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#888; text-decoration:none; }
+  @media(max-width:768px) {
+    nav { padding:20px 24px; }
+    .nav-links { display:none; }
+    .post-header, .post-body, .post-footer { padding-left:24px; padding-right:24px; }
+    footer { padding:24px; flex-wrap:wrap; gap:16px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">Chihiro Shibayama</a>
+  <ul class="nav-links">
+    <li><a href="../bio.html">Biography</a></li>
+    <li><a href="../teaching.html">Teaching</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../media.html">Media</a></li>
+  </ul>
+  <a href="../teaching.html#contact" class="nav-contact">Contact</a>
+</nav>
+<div class="post-header">
+  <div class="post-eyebrow">
+    <a href="../blog.html" class="back-link">← All posts</a>
+    <span class="post-date">January 19, 2021</span>
+  </div>
+  <h1 class="post-title">Polyrhythm Maker - a tool to let you figure out any polyrhythms!</h1>
+</div>
+<div class="post-body">
+[caption id="" align="alignnone" width="720"]<img src="https://images.squarespace-cdn.com/content/v1/54fe992ce4b081b61d82862f/1611072236320-3OYDUTMXJC1DE0LFVC9A/10924814_615374967260_609849297617451658_n.jpg?format=original" alt=" Playing Timpani in “Glory” with John Legend &amp; Common - in Selma, AL "/>  Playing Timpani in “Glory” with John Legend &amp; Common - in Selma, AL [/caption] 
+  
+
+
+
+
+  <p>How was your Martin Luther King Day? I was remembering about a performance I was a part of six years ago honoring his life in Selma Alabama. I really look up to how he dedicated his life to helping and inspiring others. It is my hope to do the same with the power of music and whatever abilities I can offer! We performed "Glory" with John Legend and Common, which was written for the movie “Selma”. Edmund Pettus Bridge is where 600 people marched demanding an end to discrimination in voter registration in 1965. If you would like to learn more about the history, "Selma" is a great movie about how the civil rights movement.&nbsp;</p><p>I'm also on day 9 of the<a href="https://www.instagram.com/chihiroplayspercussion/channel/?hl=en">&nbsp;30-Day 10min Practice Challenge</a>.&nbsp;I'm feeling very good about myself for continuing this challenge (pressure is also on since I'm the one who started this challenge!🙄). You can follow my journey via the link on my Instagram (@<a href="https://www.instagram.com/chihiroplayspercussion/channel/?hl=en">chihiroplayspercussion</a>)</p><h2>Today, I'm sharing my&nbsp;<a href="https://cheerful-motivator-6149.ck.page/8070e2f9f4" target="_blank">"Polyrhythm Maker"!!</a>🥳 (You can download the PDFs via the link)</h2><p>Continuing the theme of last week’s&nbsp;<a href="https://www.chihiroshibayama.com/positive-percussionist-blog/2021/1/11/polyrhythm-reading-challenge">Polyrhythm Challenge</a>, I wanted to dive deep into the world of polyrhythm.&nbsp;</p><p>Have you ever encountered a polyrhythm in a piece that you just wanted to fake because you felt like there is no way to play it accurately? I certainly have! 😖</p><p>That’s why I made this Polyrhythm Maker so that you can figure out EXACTLY how to play whatever polyrhythms come your way ⭐️💫&nbsp;</p><p><strong>The Polyrhythm Maker will:</strong></p><p>💫 Teach you how to figure out any polyrhythms by making an easy-to-play grid of notes</p><p>💫 Give you a chance to practice difficult polyrhythms accurately</p><p>💫 Come with an instruction PDF, LCM calculator, and graph paper to do your own project</p><p>As always, please feel free to contact me with any comments, requests, or questions by replying to this email. It’s my goal to make this newsletter as helpful to you as possible.&nbsp;</p><p>Here is a little inspiration from Dr. King ⭐️</p><h3>“The function of education is to teach one to think intensively and to think critically. Intelligence plus character – that is the goal of true education.”</h3><h3>– Martin Luther King Jr.</h3><p>Have a wonderful week &amp; Happy Practicing!</p>
+</div>
+<hr class="post-divider" style="max-width:760px; margin:0 auto 0; border:none; border-top:1px solid #e8e6e2;">
+<div class="post-footer">
+  <a href="../blog.html">← Back to all posts</a>
+</div>
+<footer>
+  <a href="../index.html" class="footer-logo">Chihiro Shibayama</a>
+  <div class="footer-links">
+    <a href="../bio.html">Biography</a>
+    <a href="../teaching.html">Teaching</a>
+    <a href="../media.html">Media</a>
+  </div>
+</footer>
+</body>
+</html>
